@@ -13,7 +13,7 @@ missing_vendors = []
 
 
 logger = logging.getLogger(__name__)
-TALLY_URL = "http://192.168.29.237:9000"
+TALLY_URL = "http://localhost:9000"
 
 logger.info("STAGE-1: Retrieving the company name, ledgers and stock items from tally")
 
