@@ -1,0 +1,72 @@
+<ENVELOPE>
+ <HEADER>
+  <TALLYREQUEST>Import Data</TALLYREQUEST>
+ </HEADER>
+ <BODY>
+  <IMPORTDATA>
+   <REQUESTDESC>
+    <REPORTNAME>Vouchers</REPORTNAME>
+    <STATICVARIABLES>
+     <SVCURRENTCOMPANY>My Home Jewel Apartments</SVCURRENTCOMPANY>
+    </STATICVARIABLES>
+   </REQUESTDESC>
+   <REQUESTDATA>
+    <TALLYMESSAGE xmlns:UDF="TallyUDF">
+     <VOUCHER REMOTEID="" VCHKEY="" VCHTYPE="Purchase" ACTION="Create" OBJVIEW="Invoice Voucher View">
+      <DATE>20260701</DATE>
+      <NARRATION>Purchase against Bill No. KLKA2526-12078</NARRATION>
+      <VOUCHERTYPENAME>Purchase</VOUCHERTYPENAME>
+      <REFERENCE>KLKA2526-12078</REFERENCE>
+      <VOUCHERNUMBER>KLKA2526-12078</VOUCHERNUMBER>
+      <PARTYLEDGERNAME>Kre38 Labs Pvt Ltd</PARTYLEDGERNAME>
+      <BASICBUYERNAME>Kre38 Labs Pvt Ltd</BASICBUYERNAME>
+      <PERSISTEDVIEW>Invoice Voucher View</PERSISTEDVIEW>
+      <ISINVOICE>Yes</ISINVOICE>
+      <EFFECTIVEDATE>20260701</EFFECTIVEDATE>
+
+      <!-- ===== Inventory Entries (dynamically inserted per item) ===== -->
+                        <ALLINVENTORYENTRIES.LIST>
+                            <STOCKITEMNAME>Logitech Mouse</STOCKITEMNAME>
+                            <ISDEEMEDPOSITIVE>Yes</ISDEEMEDPOSITIVE>
+                            <RATE>500.00/Nos</RATE>
+                            <ACTUALQTY>10 Nos</ACTUALQTY>
+                            <BILLEDQTY>10 Nos</BILLEDQTY>
+                            <AMOUNT>-5000.00</AMOUNT>
+                            <ACCOUNTINGALLOCATIONS.LIST>
+                                <LEDGERNAME>Purchase A/c</LEDGERNAME>
+                                <ISDEEMEDPOSITIVE>Yes</ISDEEMEDPOSITIVE>
+                                <AMOUNT>-5000.00</AMOUNT>
+                            </ACCOUNTINGALLOCATIONS.LIST>
+                        </ALLINVENTORYENTRIES.LIST>
+                        <ALLINVENTORYENTRIES.LIST>
+                            <STOCKITEMNAME>Dell Keyboard</STOCKITEMNAME>
+                            <ISDEEMEDPOSITIVE>Yes</ISDEEMEDPOSITIVE>
+                            <RATE>1200.00/Nos</RATE>
+                            <ACTUALQTY>5 Nos</ACTUALQTY>
+                            <BILLEDQTY>5 Nos</BILLEDQTY>
+                            <AMOUNT>-6000.00</AMOUNT>
+                            <ACCOUNTINGALLOCATIONS.LIST>
+                                <LEDGERNAME>Purchase A/c</LEDGERNAME>
+                                <ISDEEMEDPOSITIVE>Yes</ISDEEMEDPOSITIVE>
+                                <AMOUNT>-6000.00</AMOUNT>
+                            </ACCOUNTINGALLOCATIONS.LIST>
+                        </ALLINVENTORYENTRIES.LIST>
+
+      <!-- ===== Party Ledger Entry (total, credit side) ===== -->
+      <LEDGERENTRIES.LIST>
+       <LEDGERNAME>Kre38 Labs Pvt Ltd</LEDGERNAME>
+       <ISDEEMEDPOSITIVE>No</ISDEEMEDPOSITIVE>
+       <AMOUNT>11000.00</AMOUNT>
+       <BILLALLOCATIONS.LIST>
+        <NAME>KLKA2526-12078</NAME>
+        <BILLTYPE>New Ref</BILLTYPE>
+        <AMOUNT>11000.00</AMOUNT>
+       </BILLALLOCATIONS.LIST>
+      </LEDGERENTRIES.LIST>
+
+     </VOUCHER>
+    </TALLYMESSAGE>
+   </REQUESTDATA>
+  </IMPORTDATA>
+ </BODY>
+</ENVELOPE>

@@ -1,0 +1,48 @@
+<ENVELOPE>
+  <HEADER><TALLYREQUEST>Import Data</TALLYREQUEST></HEADER>
+  <BODY>
+    <IMPORTDATA>
+      <REQUESTDESC>
+        <REPORTNAME>Vouchers</REPORTNAME>
+        <STATICVARIABLES>
+          <SVCURRENTCOMPANY>My Home Jewel Apartments</SVCURRENTCOMPANY>
+        </STATICVARIABLES>
+      </REQUESTDESC>
+      <REQUESTDATA>
+        <TALLYMESSAGE xmlns:UDF="TallyUDF">
+          <VOUCHER VCHTYPE="Purchase" ACTION="Create" OBJVIEW="Invoice Voucher View">
+            <PERSISTEDVIEW>Invoice Voucher View</PERSISTEDVIEW>
+            <DATE>20260401</DATE>
+            <EFFECTIVEDATE>20260401</EFFECTIVEDATE>
+            <VOUCHERTYPENAME>Purchase</VOUCHERTYPENAME>
+            <ISINVOICE>Yes</ISINVOICE>
+            <PARTYLEDGERNAME>Kre38 Labs Pvt Ltd</PARTYLEDGERNAME>
+            <BASICBUYERNAME>Kre38 Labs Pvt Ltd</BASICBUYERNAME>
+            <REFERENCE>KLKA252612078</REFERENCE>
+            <NARRATION>SourceInvoiceDate=20251201 | SourceInvoiceRef=KLKA2526-12078</NARRATION>
+            <ISOPTIONAL>No</ISOPTIONAL>
+            <ALLLEDGERENTRIES.LIST>
+              <LEDGERNAME>Kre38 Labs Pvt Ltd</LEDGERNAME>
+              <ISDEEMEDPOSITIVE>No</ISDEEMEDPOSITIVE>
+              <ISPARTYLEDGER>Yes</ISPARTYLEDGER>
+              <AMOUNT>11391.00</AMOUNT>
+            </ALLLEDGERENTRIES.LIST>
+            <ALLINVENTORYENTRIES.LIST>
+              <STOCKITEMNAME>Waltr A Monthly Subscription Water Level &amp;Usage Monitor 01/12/2025 to 31/12/2025</STOCKITEMNAME>
+              <ISDEEMEDPOSITIVE>Yes</ISDEEMEDPOSITIVE>
+              <RATE>499.00/Nos</RATE>
+              <ACTUALQTY>28 Nos</ACTUALQTY>
+              <BILLEDQTY>28 Nos</BILLEDQTY>
+              <AMOUNT>-11391.00</AMOUNT>
+              <ACCOUNTINGALLOCATIONS.LIST>
+                <LEDGERNAME>Purchase A/c</LEDGERNAME>
+                <ISDEEMEDPOSITIVE>Yes</ISDEEMEDPOSITIVE>
+                <AMOUNT>-11391.00</AMOUNT>
+              </ACCOUNTINGALLOCATIONS.LIST>
+            </ALLINVENTORYENTRIES.LIST>
+          </VOUCHER>
+        </TALLYMESSAGE>
+      </REQUESTDATA>
+    </IMPORTDATA>
+  </BODY>
+</ENVELOPE>

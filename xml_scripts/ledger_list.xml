@@ -1,0 +1,25 @@
+<ENVELOPE>
+    <HEADER>
+        <VERSION>1</VERSION>
+        <TALLYREQUEST>Export</TALLYREQUEST>
+        <TYPE>COLLECTION</TYPE>
+        <ID>LedgerCollection</ID>
+    </HEADER>
+    <BODY>
+        <DESC>
+            <STATICVARIABLES>
+                <SVEXPORTFORMAT>$$SysName:XML</SVEXPORTFORMAT>
+            </STATICVARIABLES>
+            <TDL>
+                <TDLMESSAGE>
+                    <COLLECTION NAME="LedgerCollection">
+                        <TYPE>Ledger</TYPE>
+                        <!-- Fetching name and the accounting group it belongs to -->
+                        <FETCH>Name</FETCH>
+                        <FETCH>Parent</FETCH>
+                    </COLLECTION>
+                </TDLMESSAGE>
+            </TDL>
+        </DESC>
+    </BODY>
+</ENVELOPE>

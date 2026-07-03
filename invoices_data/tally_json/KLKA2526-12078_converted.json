@@ -1,0 +1,18 @@
+{
+  "invoice_number": "KLKA2526-12078",
+  "invoice_date": "20251201",
+  "vendor_name": "Kre38 Labs Pvt Ltd",
+  "line_items": [
+    {
+      "item_name": "Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025",
+      "hsn": "998319",
+      "quantity": 28.0,
+      "unit_price": 499.0,
+      "unit": "Nos",
+      "amount": 13972.0
+    }
+  ],
+  "total_amount": 11391.0,
+  "currency": "",
+  "narration": ""
+}

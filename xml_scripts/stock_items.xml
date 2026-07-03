@@ -1,0 +1,26 @@
+<ENVELOPE>
+    <HEADER>
+        <VERSION>1</VERSION>
+        <TALLYREQUEST>Export</TALLYREQUEST>
+        <TYPE>COLLECTION</TYPE>
+        <ID>StockItemCollection</ID>
+    </HEADER>
+    <BODY>
+        <DESC>
+            <STATICVARIABLES>
+                <SVEXPORTFORMAT>$$SysName:XML</SVEXPORTFORMAT>
+            </STATICVARIABLES>
+            <TDL>
+                <TDLMESSAGE>
+                    <COLLECTION NAME="StockItemCollection">
+                        <TYPE>StockItem</TYPE>
+                        <!-- Fetching name, category/group, and measurement unit -->
+                        <FETCH>Name</FETCH>
+                        <FETCH>Parent</FETCH>
+                        <FETCH>BaseUnits</FETCH>
+                    </COLLECTION>
+                </TDLMESSAGE>
+            </TDL>
+        </DESC>
+    </BODY>
+</ENVELOPE>

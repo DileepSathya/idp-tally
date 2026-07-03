@@ -1,0 +1,1212 @@
+2026-07-03 13:29:20,153  INFO      ============================================================
+2026-07-03 13:29:20,154  INFO      Starting Tally ITEM INVOICE pipeline for invoice: KLKA2526-12078
+2026-07-03 13:29:20,155  INFO      ============================================================
+2026-07-03 13:29:20,155  INFO      [STEP 1] Connecting to MongoDB at mongodb://localhost:27017 ...
+2026-07-03 13:29:20,158  DEBUG     {"message": "Starting topology monitoring", "topologyId": {"$oid": "6a476bd8eb6c7207fb40f6ef"}}
+2026-07-03 13:29:20,159  DEBUG     {"message": "Topology description changed", "topologyId": {"$oid": "6a476bd8eb6c7207fb40f6ef"}, "previousDescription": "<TopologyDescription id: 6a476bd8eb6c7207fb40f6ef, topology_type: Unknown, servers: []>", "newDescription": "<TopologyDescription id: 6a476bd8eb6c7207fb40f6ef, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>"}
+2026-07-03 13:29:20,159  DEBUG     {"message": "Starting server monitoring", "topologyId": {"$oid": "6a476bd8eb6c7207fb40f6ef"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:29:20,160  DEBUG     {"message": "Connection pool created", "clientId": {"$oid": "6a476bd8eb6c7207fb40f6ef"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:29:20,163  DEBUG     {"message": "Server selection started", "selector": "Primary()", "operation": "buildinfo", "topologyDescription": "<TopologyDescription id: 6a476bd8eb6c7207fb40f6ef, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a476bd8eb6c7207fb40f6ef"}}
+2026-07-03 13:29:20,164  DEBUG     {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "buildinfo", "topologyDescription": "<TopologyDescription id: 6a476bd8eb6c7207fb40f6ef, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a476bd8eb6c7207fb40f6ef"}, "remainingTimeMS": 5000}
+2026-07-03 13:29:20,167  DEBUG     {"message": "Server heartbeat started", "topologyId": {"$oid": "6a476bd8eb6c7207fb40f6ef"}, "driverConnectionId": 1, "serverHost": "localhost", "serverPort": 27017, "awaited": false}
+2026-07-03 13:29:20,169  DEBUG     {"message": "Server heartbeat succeeded", "topologyId": {"$oid": "6a476bd8eb6c7207fb40f6ef"}, "driverConnectionId": 1, "serverConnectionId": 534, "serverHost": "localhost", "serverPort": 27017, "awaited": false, "durationMS": 16.00000000325963, "reply": "{\"helloOk\": true, \"ismaster\": true, \"topologyVersion\": {\"processId\": {\"$oid\": \"6a42672695a9dc8da777b2d6\"}}, \"maxBsonObjectSize\": 16777216, \"maxMessageSizeBytes\": 48000000, \"maxWriteBatchSize\": 100000, \"localTime\": {\"$date\": \"2026-07-03T07:59:20.169Z\"}, \"logicalSessionTimeoutMinutes\": 30, \"connectionId\": 534, \"maxWireVersion\": 27, \"ok\": 1.0}"}
+2026-07-03 13:29:20,170  DEBUG     {"message": "Connection pool ready", "clientId": {"$oid": "6a476bd8eb6c7207fb40f6ef"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:29:20,170  DEBUG     {"message": "Topology description changed", "topologyId": {"$oid": "6a476bd8eb6c7207fb40f6ef"}, "previousDescription": "<TopologyDescription id: 6a476bd8eb6c7207fb40f6ef, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "newDescription": "<TopologyDescription id: 6a476bd8eb6c7207fb40f6ef, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.01600000000325963>]>"}
+2026-07-03 13:29:20,170  DEBUG     {"message": "Server selection succeeded", "selector": "Primary()", "operation": "buildinfo", "topologyDescription": "<TopologyDescription id: 6a476bd8eb6c7207fb40f6ef, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.01600000000325963>]>", "clientId": {"$oid": "6a476bd8eb6c7207fb40f6ef"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:29:20,171  DEBUG     {"message": "Server heartbeat started", "topologyId": {"$oid": "6a476bd8eb6c7207fb40f6ef"}, "driverConnectionId": 1, "serverConnectionId": 534, "serverHost": "localhost", "serverPort": 27017, "awaited": true}
+2026-07-03 13:29:20,171  DEBUG     {"message": "Connection checkout started", "clientId": {"$oid": "6a476bd8eb6c7207fb40f6ef"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:29:20,172  DEBUG     {"message": "Connection created", "clientId": {"$oid": "6a476bd8eb6c7207fb40f6ef"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1}
+2026-07-03 13:29:20,177  DEBUG     {"message": "Connection ready", "clientId": {"$oid": "6a476bd8eb6c7207fb40f6ef"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.0}
+2026-07-03 13:29:20,178  DEBUG     {"message": "Connection checked out", "clientId": {"$oid": "6a476bd8eb6c7207fb40f6ef"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.0}
+2026-07-03 13:29:20,179  DEBUG     {"message": "Command started", "clientId": {"$oid": "6a476bd8eb6c7207fb40f6ef"}, "command": "{\"buildinfo\": 1, \"lsid\": {\"id\": {\"$binary\": {\"base64\": \"VWO7wV27SYuieLYpL5SDxg==\", \"subType\": \"04\"}}}, \"$db\": \"admin\"}", "commandName": "buildinfo", "databaseName": "admin", "requestId": 18467, "operationId": 18467, "driverConnectionId": 1, "serverConnectionId": 536, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:29:20,180  DEBUG     {"message": "Command succeeded", "clientId": {"$oid": "6a476bd8eb6c7207fb40f6ef"}, "durationMS": 1.987, "reply": "{\"version\": \"8.2.6\", \"versionArray\": [8, 2, 6], \"gitVersion\": \"5d25c835745d06f712320b6cdae9d50b7b43663e\", \"targetMinOS\": \"Windows 7/Windows Server 2008 R2\", \"allocator\": \"tcmalloc-gperf\", \"javascriptEngine\": \"mozjs\", \"sysinfo\": \"deprecated\", \"openssl\": {\"running\": \"Windows SChannel\"}, \"buildEnvironment\": {\"distmod\": \"windows\", \"cc\": \"C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.31.31103/bin/HostX64/x64/cl.exe: version unknown\", \"ccflags\": \"/nologo /DNOMINMAX /D_CRT_SECURE_NO_DEPRECATE /D_CRT_SECURE_NO_WARNINGS /bigobj /Zm500 /EHsc /wd4351 /wd4291 /wd4250 /wd4996 /std:c++20 /utf-8 /diagnostics:caret /errorReport:none /permissive- /Zc:__cplusplus /Zc:sizedDealloc /volatile:iso /fp:strict /showIncludes /O2 /Oy- /DNDEBUG /wd4117 -D__DATE__=\"redacted\" -D__TIMESTAMP__=\"redacted\" -D__TIME__=\"redacted\" /Zc:inline /D_WIN32_WINNT=0x0A00 /DBOOST_USE_WINAPI_VERSION=0x0A00 /DNTDDI_VERSION=0x0A000000 -Isrc -I$(GENDIR)/src -I$(GENDIR)/src/mongo/db/modules/enterpri...", "commandName": "buildinfo", "databaseName": "admin", "requestId": 18467, "operationId": 18467, "driverConnectionId": 1, "serverConnectionId": 536, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:29:20,183  DEBUG     {"message": "Connection checked in", "clientId": {"$oid": "6a476bd8eb6c7207fb40f6ef"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1}
+2026-07-03 13:29:20,184  INFO        Connected to DB 'IDP', collection 'invoices'
+2026-07-03 13:29:20,184  INFO      [STEP 1] Searching for invoice 'KLKA2526-12078' ...
+2026-07-03 13:29:20,184  DEBUG     {"message": "Server selection started", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6a476bd8eb6c7207fb40f6ef, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.01600000000325963>]>", "clientId": {"$oid": "6a476bd8eb6c7207fb40f6ef"}}
+2026-07-03 13:29:20,185  DEBUG     {"message": "Server selection succeeded", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6a476bd8eb6c7207fb40f6ef, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.01600000000325963>]>", "clientId": {"$oid": "6a476bd8eb6c7207fb40f6ef"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:29:20,185  DEBUG     {"message": "Connection checkout started", "clientId": {"$oid": "6a476bd8eb6c7207fb40f6ef"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:29:20,186  DEBUG     {"message": "Connection checked out", "clientId": {"$oid": "6a476bd8eb6c7207fb40f6ef"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.0}
+2026-07-03 13:29:20,186  DEBUG     {"message": "Command started", "clientId": {"$oid": "6a476bd8eb6c7207fb40f6ef"}, "command": "{\"find\": \"invoices\", \"filter\": {\"$or\": [{\"gemini.json.invoice_number\": \"KLKA2526-12078\"}, {\"gemini.json.invoice\": \"KLKA2526-12078\"}]}, \"sort\": {\"_id\": -1}, \"limit\": 1, \"singleBatch\": true, \"lsid\": {\"id\": {\"$binary\": {\"base64\": \"VWO7wV27SYuieLYpL5SDxg==\", \"subType\": \"04\"}}}, \"$db\": \"IDP\"}", "commandName": "find", "databaseName": "IDP", "requestId": 6334, "operationId": 6334, "driverConnectionId": 1, "serverConnectionId": 536, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:29:20,188  DEBUG     {"message": "Command succeeded", "clientId": {"$oid": "6a476bd8eb6c7207fb40f6ef"}, "durationMS": 2.006, "reply": "{\"cursor\": {\"firstBatch\": [{\"_id\": {\"$oid\": \"6a3e30e37a939c14beb0764f\"}, \"file_path\": \"D:\\IDP_2.0-INVOICE\\dist\\IDP-Invoice\\invoices_data\\Completed\\SD-1.jpeg\", \"uploaded_file_path\": \"D:\\IDP_2.0-INVOICE\\dist\\IDP-Invoice\\invoices_data\\Completed\\SD-1.jpeg\", \"ocr_text\": \"Tax Invoice\nKre38 Labs Pvt Ltd\nInvoice No.\npaeed\nNo.354.1st C Cross RoadKoramangla 8th Block\nKLKA2526-12078\n1-Dec-25\nKoramangala BengaluruBengaluru Urban\nKarnataka,560095\nGSTIN/UIN:29AAHCK0414C1ZZ\nState Name:Karnataka,Code:29\nCIN:U74999KA2018PTC111891\nBuyer (Bill to)\nMY HOME JEWEL FLAT OWNERS MAINTENANCE MUTUALIY AIDED CO-OP SOCIETY LIMITED\nSY NO 83 97.My Home Jewel,Madinaguda\nHyderabad,Rangareddy. Telangana\nGSTIN/UIN\n36AATAM7466Q1ZB\nState Name\nTelanganaCode:36\nSI\nDescription of\nHSN/SAC\nQuantity\nRate\nper\nAmount\nNo.\nServices\n1 Waltr A Monthly Subscription\n998319\n28 Nos\n499.00Nos\n13,972.00\nWater Level &Usage Monitor\n01/12/2025 to 31/12/2025\nLess:\nDiscount\n-4,319.00\n154.25*28=...", "commandName": "find", "databaseName": "IDP", "requestId": 6334, "operationId": 6334, "driverConnectionId": 1, "serverConnectionId": 536, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:29:20,188  DEBUG     {"message": "Connection checked in", "clientId": {"$oid": "6a476bd8eb6c7207fb40f6ef"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1}
+2026-07-03 13:29:20,189  INFO        ✓ Invoice found in MongoDB (document _id: 6a3e30e37a939c14beb0764f)
+2026-07-03 13:29:20,189  INFO      [STEP 2] Converting document to invoice structure ...
+2026-07-03 13:29:20,194  DEBUG     Date '1-Dec-25' matched format '%d-%b-%y' → 20251201
+2026-07-03 13:29:20,194  INFO        ✓ Converted successfully
+2026-07-03 13:29:20,194  INFO          Vendor      : Kre38 Labs Pvt Ltd
+2026-07-03 13:29:20,194  INFO          Date        : 20251201
+2026-07-03 13:29:20,195  INFO          Total       : 11391.0
+2026-07-03 13:29:20,195  INFO          Line items  : 1
+2026-07-03 13:29:20,195  INFO            - Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025 | qty=28.0 Nos | rate=499.0 | amount=13972.0
+2026-07-03 13:29:20,197  INFO        Converted JSON saved to: invoices_data\tally_json\KLKA2526-12078_converted.json
+2026-07-03 13:29:20,197  INFO      [STEP 3] Resolving target Tally company name ...
+2026-07-03 13:29:20,197  INFO      Using TALLY_COMPANY from env: 'Test_fy_26'
+2026-07-03 13:29:20,198  INFO        Using Tally company: 'Test_fy_26'
+2026-07-03 13:29:20,198  INFO      [STEP 4] Verifying / creating masters in Tally ...
+2026-07-03 13:29:20,198  INFO      Checking ledger: 'Kre38 Labs Pvt Ltd'
+2026-07-03 13:29:20,198  DEBUG     Posting to Tally [check_ledger:Kre38 Labs Pvt Ltd] ...
+2026-07-03 13:29:20,201  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:29:20,224  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:29:20,226  DEBUG     Tally response [check_ledger:Kre38 Labs Pvt Ltd]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:29:20,227  DEBUG     Ledger 'Kre38 Labs Pvt Ltd' exists in Tally: False
+2026-07-03 13:29:20,227  INFO        ✗ Ledger 'Kre38 Labs Pvt Ltd' not found – creating under 'Sundry Creditors'
+2026-07-03 13:29:20,227  DEBUG     Posting to Tally [create_ledger:Kre38 Labs Pvt Ltd] ...
+2026-07-03 13:29:20,228  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:29:20,233  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:29:20,234  DEBUG     Tally response [create_ledger:Kre38 Labs Pvt Ltd]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:29:20,235  ERROR       Tally reported a LINEERROR creating ledger 'Kre38 Labs Pvt Ltd': <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:29:20,235  INFO      Checking ledger: 'Purchase A/c'
+2026-07-03 13:29:20,235  DEBUG     Posting to Tally [check_ledger:Purchase A/c] ...
+2026-07-03 13:29:20,236  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:29:20,266  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:29:20,266  DEBUG     Tally response [check_ledger:Purchase A/c]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:29:20,267  DEBUG     Ledger 'Purchase A/c' exists in Tally: False
+2026-07-03 13:29:20,267  INFO        ✗ Ledger 'Purchase A/c' not found – creating under 'Purchase Accounts'
+2026-07-03 13:29:20,267  DEBUG     Posting to Tally [create_ledger:Purchase A/c] ...
+2026-07-03 13:29:20,268  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:29:20,296  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:29:20,297  DEBUG     Tally response [create_ledger:Purchase A/c]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:29:20,297  ERROR       Tally reported a LINEERROR creating ledger 'Purchase A/c': <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:29:20,297  INFO      Checking stock item: 'Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025'
+2026-07-03 13:29:20,298  INFO      Checking unit of measure: 'Nos'
+2026-07-03 13:29:20,298  DEBUG     Posting to Tally [check_unit:Nos] ...
+2026-07-03 13:29:20,300  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:29:20,326  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 98
+2026-07-03 13:29:20,327  DEBUG     Tally response [check_unit:Nos]: <RESPONSE>
+ <LINEERROR>Could not find Report &apos;List of Units&apos;!</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:29:20,327  DEBUG     Unit 'Nos' exists in Tally: False
+2026-07-03 13:29:20,328  INFO        ✗ Unit 'Nos' not found – creating
+2026-07-03 13:29:20,328  DEBUG     Posting to Tally [create_unit:Nos] ...
+2026-07-03 13:29:20,329  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:29:20,355  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:29:20,356  DEBUG     Tally response [create_unit:Nos]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:29:20,357  ERROR       Tally reported a LINEERROR creating unit 'Nos': <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:29:20,357  ERROR       Cannot ensure stock item 'Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025' – required unit 'Nos' could not be created
+2026-07-03 13:29:20,358  ERROR       One or more masters could not be created. Aborting voucher push.
+2026-07-03 13:30:41,805  INFO      ============================================================
+2026-07-03 13:30:41,805  INFO      Starting Tally ITEM INVOICE pipeline for invoice: KLKA2526-12078
+2026-07-03 13:30:41,805  INFO      ============================================================
+2026-07-03 13:30:41,806  INFO      [STEP 1] Connecting to MongoDB at mongodb://localhost:27017 ...
+2026-07-03 13:30:41,808  DEBUG     {"message": "Starting topology monitoring", "topologyId": {"$oid": "6a476c29ae5b72a7aa73f131"}}
+2026-07-03 13:30:41,808  DEBUG     {"message": "Topology description changed", "topologyId": {"$oid": "6a476c29ae5b72a7aa73f131"}, "previousDescription": "<TopologyDescription id: 6a476c29ae5b72a7aa73f131, topology_type: Unknown, servers: []>", "newDescription": "<TopologyDescription id: 6a476c29ae5b72a7aa73f131, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>"}
+2026-07-03 13:30:41,809  DEBUG     {"message": "Starting server monitoring", "topologyId": {"$oid": "6a476c29ae5b72a7aa73f131"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:30:41,809  DEBUG     {"message": "Connection pool created", "clientId": {"$oid": "6a476c29ae5b72a7aa73f131"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:30:41,812  DEBUG     {"message": "Server selection started", "selector": "Primary()", "operation": "buildinfo", "topologyDescription": "<TopologyDescription id: 6a476c29ae5b72a7aa73f131, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a476c29ae5b72a7aa73f131"}}
+2026-07-03 13:30:41,813  DEBUG     {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "buildinfo", "topologyDescription": "<TopologyDescription id: 6a476c29ae5b72a7aa73f131, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a476c29ae5b72a7aa73f131"}, "remainingTimeMS": 5000}
+2026-07-03 13:30:41,816  DEBUG     {"message": "Server heartbeat started", "topologyId": {"$oid": "6a476c29ae5b72a7aa73f131"}, "driverConnectionId": 1, "serverHost": "localhost", "serverPort": 27017, "awaited": false}
+2026-07-03 13:30:41,817  DEBUG     {"message": "Server heartbeat succeeded", "topologyId": {"$oid": "6a476c29ae5b72a7aa73f131"}, "driverConnectionId": 1, "serverConnectionId": 537, "serverHost": "localhost", "serverPort": 27017, "awaited": false, "durationMS": 0.0, "reply": "{\"helloOk\": true, \"ismaster\": true, \"topologyVersion\": {\"processId\": {\"$oid\": \"6a42672695a9dc8da777b2d6\"}}, \"maxBsonObjectSize\": 16777216, \"maxMessageSizeBytes\": 48000000, \"maxWriteBatchSize\": 100000, \"localTime\": {\"$date\": \"2026-07-03T08:00:41.818Z\"}, \"logicalSessionTimeoutMinutes\": 30, \"connectionId\": 537, \"maxWireVersion\": 27, \"ok\": 1.0}"}
+2026-07-03 13:30:41,818  DEBUG     {"message": "Connection pool ready", "clientId": {"$oid": "6a476c29ae5b72a7aa73f131"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:30:41,818  DEBUG     {"message": "Topology description changed", "topologyId": {"$oid": "6a476c29ae5b72a7aa73f131"}, "previousDescription": "<TopologyDescription id: 6a476c29ae5b72a7aa73f131, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "newDescription": "<TopologyDescription id: 6a476c29ae5b72a7aa73f131, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>"}
+2026-07-03 13:30:41,818  DEBUG     {"message": "Server selection succeeded", "selector": "Primary()", "operation": "buildinfo", "topologyDescription": "<TopologyDescription id: 6a476c29ae5b72a7aa73f131, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>", "clientId": {"$oid": "6a476c29ae5b72a7aa73f131"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:30:41,819  DEBUG     {"message": "Server heartbeat started", "topologyId": {"$oid": "6a476c29ae5b72a7aa73f131"}, "driverConnectionId": 1, "serverConnectionId": 537, "serverHost": "localhost", "serverPort": 27017, "awaited": true}
+2026-07-03 13:30:41,819  DEBUG     {"message": "Connection checkout started", "clientId": {"$oid": "6a476c29ae5b72a7aa73f131"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:30:41,820  DEBUG     {"message": "Connection created", "clientId": {"$oid": "6a476c29ae5b72a7aa73f131"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1}
+2026-07-03 13:30:41,825  DEBUG     {"message": "Connection ready", "clientId": {"$oid": "6a476c29ae5b72a7aa73f131"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.0}
+2026-07-03 13:30:41,825  DEBUG     {"message": "Connection checked out", "clientId": {"$oid": "6a476c29ae5b72a7aa73f131"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.015000000013969839}
+2026-07-03 13:30:41,826  DEBUG     {"message": "Command started", "clientId": {"$oid": "6a476c29ae5b72a7aa73f131"}, "command": "{\"buildinfo\": 1, \"lsid\": {\"id\": {\"$binary\": {\"base64\": \"LzlX8ONQQw+XbpTTUpnj2g==\", \"subType\": \"04\"}}}, \"$db\": \"admin\"}", "commandName": "buildinfo", "databaseName": "admin", "requestId": 18467, "operationId": 18467, "driverConnectionId": 1, "serverConnectionId": 539, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:30:41,827  DEBUG     {"message": "Command succeeded", "clientId": {"$oid": "6a476c29ae5b72a7aa73f131"}, "durationMS": 1.002, "reply": "{\"version\": \"8.2.6\", \"versionArray\": [8, 2, 6], \"gitVersion\": \"5d25c835745d06f712320b6cdae9d50b7b43663e\", \"targetMinOS\": \"Windows 7/Windows Server 2008 R2\", \"allocator\": \"tcmalloc-gperf\", \"javascriptEngine\": \"mozjs\", \"sysinfo\": \"deprecated\", \"openssl\": {\"running\": \"Windows SChannel\"}, \"buildEnvironment\": {\"distmod\": \"windows\", \"cc\": \"C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.31.31103/bin/HostX64/x64/cl.exe: version unknown\", \"ccflags\": \"/nologo /DNOMINMAX /D_CRT_SECURE_NO_DEPRECATE /D_CRT_SECURE_NO_WARNINGS /bigobj /Zm500 /EHsc /wd4351 /wd4291 /wd4250 /wd4996 /std:c++20 /utf-8 /diagnostics:caret /errorReport:none /permissive- /Zc:__cplusplus /Zc:sizedDealloc /volatile:iso /fp:strict /showIncludes /O2 /Oy- /DNDEBUG /wd4117 -D__DATE__=\"redacted\" -D__TIMESTAMP__=\"redacted\" -D__TIME__=\"redacted\" /Zc:inline /D_WIN32_WINNT=0x0A00 /DBOOST_USE_WINAPI_VERSION=0x0A00 /DNTDDI_VERSION=0x0A000000 -Isrc -I$(GENDIR)/src -I$(GENDIR)/src/mongo/db/modules/enterpri...", "commandName": "buildinfo", "databaseName": "admin", "requestId": 18467, "operationId": 18467, "driverConnectionId": 1, "serverConnectionId": 539, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:30:41,830  DEBUG     {"message": "Connection checked in", "clientId": {"$oid": "6a476c29ae5b72a7aa73f131"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1}
+2026-07-03 13:30:41,830  INFO        Connected to DB 'IDP', collection 'invoices'
+2026-07-03 13:30:41,830  INFO      [STEP 1] Searching for invoice 'KLKA2526-12078' ...
+2026-07-03 13:30:41,831  DEBUG     {"message": "Server selection started", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6a476c29ae5b72a7aa73f131, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>", "clientId": {"$oid": "6a476c29ae5b72a7aa73f131"}}
+2026-07-03 13:30:41,831  DEBUG     {"message": "Server selection succeeded", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6a476c29ae5b72a7aa73f131, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>", "clientId": {"$oid": "6a476c29ae5b72a7aa73f131"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:30:41,831  DEBUG     {"message": "Connection checkout started", "clientId": {"$oid": "6a476c29ae5b72a7aa73f131"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:30:41,832  DEBUG     {"message": "Connection checked out", "clientId": {"$oid": "6a476c29ae5b72a7aa73f131"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.0}
+2026-07-03 13:30:41,832  DEBUG     {"message": "Command started", "clientId": {"$oid": "6a476c29ae5b72a7aa73f131"}, "command": "{\"find\": \"invoices\", \"filter\": {\"$or\": [{\"gemini.json.invoice_number\": \"KLKA2526-12078\"}, {\"gemini.json.invoice\": \"KLKA2526-12078\"}]}, \"sort\": {\"_id\": -1}, \"limit\": 1, \"singleBatch\": true, \"lsid\": {\"id\": {\"$binary\": {\"base64\": \"LzlX8ONQQw+XbpTTUpnj2g==\", \"subType\": \"04\"}}}, \"$db\": \"IDP\"}", "commandName": "find", "databaseName": "IDP", "requestId": 6334, "operationId": 6334, "driverConnectionId": 1, "serverConnectionId": 539, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:30:41,835  DEBUG     {"message": "Command succeeded", "clientId": {"$oid": "6a476c29ae5b72a7aa73f131"}, "durationMS": 2.476, "reply": "{\"cursor\": {\"firstBatch\": [{\"_id\": {\"$oid\": \"6a3e30e37a939c14beb0764f\"}, \"file_path\": \"D:\\IDP_2.0-INVOICE\\dist\\IDP-Invoice\\invoices_data\\Completed\\SD-1.jpeg\", \"uploaded_file_path\": \"D:\\IDP_2.0-INVOICE\\dist\\IDP-Invoice\\invoices_data\\Completed\\SD-1.jpeg\", \"ocr_text\": \"Tax Invoice\nKre38 Labs Pvt Ltd\nInvoice No.\npaeed\nNo.354.1st C Cross RoadKoramangla 8th Block\nKLKA2526-12078\n1-Dec-25\nKoramangala BengaluruBengaluru Urban\nKarnataka,560095\nGSTIN/UIN:29AAHCK0414C1ZZ\nState Name:Karnataka,Code:29\nCIN:U74999KA2018PTC111891\nBuyer (Bill to)\nMY HOME JEWEL FLAT OWNERS MAINTENANCE MUTUALIY AIDED CO-OP SOCIETY LIMITED\nSY NO 83 97.My Home Jewel,Madinaguda\nHyderabad,Rangareddy. Telangana\nGSTIN/UIN\n36AATAM7466Q1ZB\nState Name\nTelanganaCode:36\nSI\nDescription of\nHSN/SAC\nQuantity\nRate\nper\nAmount\nNo.\nServices\n1 Waltr A Monthly Subscription\n998319\n28 Nos\n499.00Nos\n13,972.00\nWater Level &Usage Monitor\n01/12/2025 to 31/12/2025\nLess:\nDiscount\n-4,319.00\n154.25*28=...", "commandName": "find", "databaseName": "IDP", "requestId": 6334, "operationId": 6334, "driverConnectionId": 1, "serverConnectionId": 539, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:30:41,835  DEBUG     {"message": "Connection checked in", "clientId": {"$oid": "6a476c29ae5b72a7aa73f131"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1}
+2026-07-03 13:30:41,835  INFO        ✓ Invoice found in MongoDB (document _id: 6a3e30e37a939c14beb0764f)
+2026-07-03 13:30:41,836  INFO      [STEP 2] Converting document to invoice structure ...
+2026-07-03 13:30:41,838  DEBUG     Date '1-Dec-25' matched format '%d-%b-%y' → 20251201
+2026-07-03 13:30:41,839  INFO        ✓ Converted successfully
+2026-07-03 13:30:41,839  INFO          Vendor      : Kre38 Labs Pvt Ltd
+2026-07-03 13:30:41,839  INFO          Date        : 20251201
+2026-07-03 13:30:41,840  INFO          Total       : 11391.0
+2026-07-03 13:30:41,840  INFO          Line items  : 1
+2026-07-03 13:30:41,840  INFO            - Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025 | qty=28.0 Nos | rate=499.0 | amount=13972.0
+2026-07-03 13:30:41,841  INFO        Converted JSON saved to: invoices_data\tally_json\KLKA2526-12078_converted.json
+2026-07-03 13:30:41,841  INFO      [STEP 3] Resolving target Tally company name ...
+2026-07-03 13:30:41,841  INFO      Using TALLY_COMPANY from env: 'Test_fy_26'
+2026-07-03 13:30:41,842  INFO        Using Tally company: 'Test_fy_26'
+2026-07-03 13:30:41,842  INFO      [STEP 4] Verifying / creating masters in Tally ...
+2026-07-03 13:30:41,842  INFO      Checking ledger: 'Kre38 Labs Pvt Ltd'
+2026-07-03 13:30:41,842  DEBUG     Posting to Tally [check_ledger:Kre38 Labs Pvt Ltd] ...
+2026-07-03 13:30:41,844  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:30:41,876  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:30:41,878  DEBUG     Tally response [check_ledger:Kre38 Labs Pvt Ltd]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:30:41,879  DEBUG     Ledger 'Kre38 Labs Pvt Ltd' exists in Tally: False
+2026-07-03 13:30:41,881  INFO        ✗ Ledger 'Kre38 Labs Pvt Ltd' not found – creating under 'Sundry Creditors'
+2026-07-03 13:30:41,882  DEBUG     Posting to Tally [create_ledger:Kre38 Labs Pvt Ltd] ...
+2026-07-03 13:30:41,886  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:30:41,891  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:30:41,892  DEBUG     Tally response [create_ledger:Kre38 Labs Pvt Ltd]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:30:41,893  ERROR       Tally reported a LINEERROR creating ledger 'Kre38 Labs Pvt Ltd': <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:30:41,894  INFO      Checking ledger: 'Purchase A/c'
+2026-07-03 13:30:41,894  DEBUG     Posting to Tally [check_ledger:Purchase A/c] ...
+2026-07-03 13:30:41,895  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:30:41,905  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:30:41,907  DEBUG     Tally response [check_ledger:Purchase A/c]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:30:41,910  DEBUG     Ledger 'Purchase A/c' exists in Tally: False
+2026-07-03 13:30:41,914  INFO        ✗ Ledger 'Purchase A/c' not found – creating under 'Purchase Accounts'
+2026-07-03 13:30:41,914  DEBUG     Posting to Tally [create_ledger:Purchase A/c] ...
+2026-07-03 13:30:41,916  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:30:41,921  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:30:41,922  DEBUG     Tally response [create_ledger:Purchase A/c]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:30:41,922  ERROR       Tally reported a LINEERROR creating ledger 'Purchase A/c': <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:30:41,922  INFO      Checking stock item: 'Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025'
+2026-07-03 13:30:41,922  INFO      Checking unit of measure: 'Nos'
+2026-07-03 13:30:41,923  DEBUG     Posting to Tally [check_unit:Nos] ...
+2026-07-03 13:30:41,924  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:30:41,952  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 98
+2026-07-03 13:30:41,954  DEBUG     Tally response [check_unit:Nos]: <RESPONSE>
+ <LINEERROR>Could not find Report &apos;List of Units&apos;!</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:30:41,957  DEBUG     Unit 'Nos' exists in Tally: False
+2026-07-03 13:30:41,957  INFO        ✗ Unit 'Nos' not found – creating
+2026-07-03 13:30:41,957  DEBUG     Posting to Tally [create_unit:Nos] ...
+2026-07-03 13:30:41,958  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:30:41,963  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:30:41,964  DEBUG     Tally response [create_unit:Nos]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:30:41,965  ERROR       Tally reported a LINEERROR creating unit 'Nos': <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:30:41,965  ERROR       Cannot ensure stock item 'Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025' – required unit 'Nos' could not be created
+2026-07-03 13:30:41,965  ERROR       One or more masters could not be created. Aborting voucher push.
+2026-07-03 13:31:13,413  INFO      ============================================================
+2026-07-03 13:31:13,415  INFO      Starting Tally ITEM INVOICE pipeline for invoice: KLKA2526-12078
+2026-07-03 13:31:13,415  INFO      ============================================================
+2026-07-03 13:31:13,416  INFO      [STEP 1] Connecting to MongoDB at mongodb://localhost:27017 ...
+2026-07-03 13:31:13,419  DEBUG     {"message": "Starting topology monitoring", "topologyId": {"$oid": "6a476c49c1b5237fb2d3b77a"}}
+2026-07-03 13:31:13,420  DEBUG     {"message": "Topology description changed", "topologyId": {"$oid": "6a476c49c1b5237fb2d3b77a"}, "previousDescription": "<TopologyDescription id: 6a476c49c1b5237fb2d3b77a, topology_type: Unknown, servers: []>", "newDescription": "<TopologyDescription id: 6a476c49c1b5237fb2d3b77a, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>"}
+2026-07-03 13:31:13,420  DEBUG     {"message": "Starting server monitoring", "topologyId": {"$oid": "6a476c49c1b5237fb2d3b77a"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:31:13,421  DEBUG     {"message": "Connection pool created", "clientId": {"$oid": "6a476c49c1b5237fb2d3b77a"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:31:13,424  DEBUG     {"message": "Server selection started", "selector": "Primary()", "operation": "buildinfo", "topologyDescription": "<TopologyDescription id: 6a476c49c1b5237fb2d3b77a, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a476c49c1b5237fb2d3b77a"}}
+2026-07-03 13:31:13,424  DEBUG     {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "buildinfo", "topologyDescription": "<TopologyDescription id: 6a476c49c1b5237fb2d3b77a, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a476c49c1b5237fb2d3b77a"}, "remainingTimeMS": 5000}
+2026-07-03 13:31:13,427  DEBUG     {"message": "Server heartbeat started", "topologyId": {"$oid": "6a476c49c1b5237fb2d3b77a"}, "driverConnectionId": 1, "serverHost": "localhost", "serverPort": 27017, "awaited": false}
+2026-07-03 13:31:13,429  DEBUG     {"message": "Server heartbeat succeeded", "topologyId": {"$oid": "6a476c49c1b5237fb2d3b77a"}, "driverConnectionId": 1, "serverConnectionId": 540, "serverHost": "localhost", "serverPort": 27017, "awaited": false, "durationMS": 0.0, "reply": "{\"helloOk\": true, \"ismaster\": true, \"topologyVersion\": {\"processId\": {\"$oid\": \"6a42672695a9dc8da777b2d6\"}}, \"maxBsonObjectSize\": 16777216, \"maxMessageSizeBytes\": 48000000, \"maxWriteBatchSize\": 100000, \"localTime\": {\"$date\": \"2026-07-03T08:01:13.429Z\"}, \"logicalSessionTimeoutMinutes\": 30, \"connectionId\": 540, \"maxWireVersion\": 27, \"ok\": 1.0}"}
+2026-07-03 13:31:13,429  DEBUG     {"message": "Connection pool ready", "clientId": {"$oid": "6a476c49c1b5237fb2d3b77a"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:31:13,430  DEBUG     {"message": "Topology description changed", "topologyId": {"$oid": "6a476c49c1b5237fb2d3b77a"}, "previousDescription": "<TopologyDescription id: 6a476c49c1b5237fb2d3b77a, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "newDescription": "<TopologyDescription id: 6a476c49c1b5237fb2d3b77a, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>"}
+2026-07-03 13:31:13,431  DEBUG     {"message": "Server selection succeeded", "selector": "Primary()", "operation": "buildinfo", "topologyDescription": "<TopologyDescription id: 6a476c49c1b5237fb2d3b77a, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>", "clientId": {"$oid": "6a476c49c1b5237fb2d3b77a"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:31:13,432  DEBUG     {"message": "Server heartbeat started", "topologyId": {"$oid": "6a476c49c1b5237fb2d3b77a"}, "driverConnectionId": 1, "serverConnectionId": 540, "serverHost": "localhost", "serverPort": 27017, "awaited": true}
+2026-07-03 13:31:13,432  DEBUG     {"message": "Connection checkout started", "clientId": {"$oid": "6a476c49c1b5237fb2d3b77a"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:31:13,433  DEBUG     {"message": "Connection created", "clientId": {"$oid": "6a476c49c1b5237fb2d3b77a"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1}
+2026-07-03 13:31:13,436  DEBUG     {"message": "Connection ready", "clientId": {"$oid": "6a476c49c1b5237fb2d3b77a"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.0}
+2026-07-03 13:31:13,437  DEBUG     {"message": "Connection checked out", "clientId": {"$oid": "6a476c49c1b5237fb2d3b77a"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.01600000000325963}
+2026-07-03 13:31:13,438  DEBUG     {"message": "Command started", "clientId": {"$oid": "6a476c49c1b5237fb2d3b77a"}, "command": "{\"buildinfo\": 1, \"lsid\": {\"id\": {\"$binary\": {\"base64\": \"wbvEltHFTOy6KCENge3n2w==\", \"subType\": \"04\"}}}, \"$db\": \"admin\"}", "commandName": "buildinfo", "databaseName": "admin", "requestId": 18467, "operationId": 18467, "driverConnectionId": 1, "serverConnectionId": 542, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:31:13,441  DEBUG     {"message": "Command succeeded", "clientId": {"$oid": "6a476c49c1b5237fb2d3b77a"}, "durationMS": 2.002, "reply": "{\"version\": \"8.2.6\", \"versionArray\": [8, 2, 6], \"gitVersion\": \"5d25c835745d06f712320b6cdae9d50b7b43663e\", \"targetMinOS\": \"Windows 7/Windows Server 2008 R2\", \"allocator\": \"tcmalloc-gperf\", \"javascriptEngine\": \"mozjs\", \"sysinfo\": \"deprecated\", \"openssl\": {\"running\": \"Windows SChannel\"}, \"buildEnvironment\": {\"distmod\": \"windows\", \"cc\": \"C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.31.31103/bin/HostX64/x64/cl.exe: version unknown\", \"ccflags\": \"/nologo /DNOMINMAX /D_CRT_SECURE_NO_DEPRECATE /D_CRT_SECURE_NO_WARNINGS /bigobj /Zm500 /EHsc /wd4351 /wd4291 /wd4250 /wd4996 /std:c++20 /utf-8 /diagnostics:caret /errorReport:none /permissive- /Zc:__cplusplus /Zc:sizedDealloc /volatile:iso /fp:strict /showIncludes /O2 /Oy- /DNDEBUG /wd4117 -D__DATE__=\"redacted\" -D__TIMESTAMP__=\"redacted\" -D__TIME__=\"redacted\" /Zc:inline /D_WIN32_WINNT=0x0A00 /DBOOST_USE_WINAPI_VERSION=0x0A00 /DNTDDI_VERSION=0x0A000000 -Isrc -I$(GENDIR)/src -I$(GENDIR)/src/mongo/db/modules/enterpri...", "commandName": "buildinfo", "databaseName": "admin", "requestId": 18467, "operationId": 18467, "driverConnectionId": 1, "serverConnectionId": 542, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:31:13,444  DEBUG     {"message": "Connection checked in", "clientId": {"$oid": "6a476c49c1b5237fb2d3b77a"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1}
+2026-07-03 13:31:13,445  INFO        Connected to DB 'IDP', collection 'invoices'
+2026-07-03 13:31:13,445  INFO      [STEP 1] Searching for invoice 'KLKA2526-12078' ...
+2026-07-03 13:31:13,445  DEBUG     {"message": "Server selection started", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6a476c49c1b5237fb2d3b77a, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>", "clientId": {"$oid": "6a476c49c1b5237fb2d3b77a"}}
+2026-07-03 13:31:13,446  DEBUG     {"message": "Server selection succeeded", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6a476c49c1b5237fb2d3b77a, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>", "clientId": {"$oid": "6a476c49c1b5237fb2d3b77a"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:31:13,449  DEBUG     {"message": "Connection checkout started", "clientId": {"$oid": "6a476c49c1b5237fb2d3b77a"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:31:13,449  DEBUG     {"message": "Connection checked out", "clientId": {"$oid": "6a476c49c1b5237fb2d3b77a"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.0}
+2026-07-03 13:31:13,449  DEBUG     {"message": "Command started", "clientId": {"$oid": "6a476c49c1b5237fb2d3b77a"}, "command": "{\"find\": \"invoices\", \"filter\": {\"$or\": [{\"gemini.json.invoice_number\": \"KLKA2526-12078\"}, {\"gemini.json.invoice\": \"KLKA2526-12078\"}]}, \"sort\": {\"_id\": -1}, \"limit\": 1, \"singleBatch\": true, \"lsid\": {\"id\": {\"$binary\": {\"base64\": \"wbvEltHFTOy6KCENge3n2w==\", \"subType\": \"04\"}}}, \"$db\": \"IDP\"}", "commandName": "find", "databaseName": "IDP", "requestId": 6334, "operationId": 6334, "driverConnectionId": 1, "serverConnectionId": 542, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:31:13,451  DEBUG     {"message": "Command succeeded", "clientId": {"$oid": "6a476c49c1b5237fb2d3b77a"}, "durationMS": 2.006, "reply": "{\"cursor\": {\"firstBatch\": [{\"_id\": {\"$oid\": \"6a3e30e37a939c14beb0764f\"}, \"file_path\": \"D:\\IDP_2.0-INVOICE\\dist\\IDP-Invoice\\invoices_data\\Completed\\SD-1.jpeg\", \"uploaded_file_path\": \"D:\\IDP_2.0-INVOICE\\dist\\IDP-Invoice\\invoices_data\\Completed\\SD-1.jpeg\", \"ocr_text\": \"Tax Invoice\nKre38 Labs Pvt Ltd\nInvoice No.\npaeed\nNo.354.1st C Cross RoadKoramangla 8th Block\nKLKA2526-12078\n1-Dec-25\nKoramangala BengaluruBengaluru Urban\nKarnataka,560095\nGSTIN/UIN:29AAHCK0414C1ZZ\nState Name:Karnataka,Code:29\nCIN:U74999KA2018PTC111891\nBuyer (Bill to)\nMY HOME JEWEL FLAT OWNERS MAINTENANCE MUTUALIY AIDED CO-OP SOCIETY LIMITED\nSY NO 83 97.My Home Jewel,Madinaguda\nHyderabad,Rangareddy. Telangana\nGSTIN/UIN\n36AATAM7466Q1ZB\nState Name\nTelanganaCode:36\nSI\nDescription of\nHSN/SAC\nQuantity\nRate\nper\nAmount\nNo.\nServices\n1 Waltr A Monthly Subscription\n998319\n28 Nos\n499.00Nos\n13,972.00\nWater Level &Usage Monitor\n01/12/2025 to 31/12/2025\nLess:\nDiscount\n-4,319.00\n154.25*28=...", "commandName": "find", "databaseName": "IDP", "requestId": 6334, "operationId": 6334, "driverConnectionId": 1, "serverConnectionId": 542, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:31:13,452  DEBUG     {"message": "Connection checked in", "clientId": {"$oid": "6a476c49c1b5237fb2d3b77a"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1}
+2026-07-03 13:31:13,452  INFO        ✓ Invoice found in MongoDB (document _id: 6a3e30e37a939c14beb0764f)
+2026-07-03 13:31:13,452  INFO      [STEP 2] Converting document to invoice structure ...
+2026-07-03 13:31:13,456  DEBUG     Date '1-Dec-25' matched format '%d-%b-%y' → 20251201
+2026-07-03 13:31:13,456  INFO        ✓ Converted successfully
+2026-07-03 13:31:13,456  INFO          Vendor      : Kre38 Labs Pvt Ltd
+2026-07-03 13:31:13,456  INFO          Date        : 20251201
+2026-07-03 13:31:13,457  INFO          Total       : 11391.0
+2026-07-03 13:31:13,457  INFO          Line items  : 1
+2026-07-03 13:31:13,457  INFO            - Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025 | qty=28.0 Nos | rate=499.0 | amount=13972.0
+2026-07-03 13:31:13,458  INFO        Converted JSON saved to: invoices_data\tally_json\KLKA2526-12078_converted.json
+2026-07-03 13:31:13,458  INFO      [STEP 3] Resolving target Tally company name ...
+2026-07-03 13:31:13,458  INFO      Using TALLY_COMPANY from env: 'Test_fy_26'
+2026-07-03 13:31:13,458  INFO        Using Tally company: 'Test_fy_26'
+2026-07-03 13:31:13,458  INFO      [STEP 4] Verifying / creating masters in Tally ...
+2026-07-03 13:31:13,458  INFO      Checking ledger: 'Kre38 Labs Pvt Ltd'
+2026-07-03 13:31:13,459  DEBUG     Posting to Tally [check_ledger:Kre38 Labs Pvt Ltd] ...
+2026-07-03 13:31:13,461  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:31:13,471  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:31:13,473  DEBUG     Tally response [check_ledger:Kre38 Labs Pvt Ltd]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:31:13,474  DEBUG     Ledger 'Kre38 Labs Pvt Ltd' exists in Tally: False
+2026-07-03 13:31:13,474  INFO        ✗ Ledger 'Kre38 Labs Pvt Ltd' not found – creating under 'Sundry Creditors'
+2026-07-03 13:31:13,474  DEBUG     Posting to Tally [create_ledger:Kre38 Labs Pvt Ltd] ...
+2026-07-03 13:31:13,475  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:31:13,480  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:31:13,482  DEBUG     Tally response [create_ledger:Kre38 Labs Pvt Ltd]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:31:13,483  ERROR       Tally reported a LINEERROR creating ledger 'Kre38 Labs Pvt Ltd': <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:31:13,483  INFO      Checking ledger: 'Purchase A/c'
+2026-07-03 13:31:13,483  DEBUG     Posting to Tally [check_ledger:Purchase A/c] ...
+2026-07-03 13:31:13,484  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:31:13,488  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:31:13,489  DEBUG     Tally response [check_ledger:Purchase A/c]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:31:13,489  DEBUG     Ledger 'Purchase A/c' exists in Tally: False
+2026-07-03 13:31:13,489  INFO        ✗ Ledger 'Purchase A/c' not found – creating under 'Purchase Accounts'
+2026-07-03 13:31:13,490  DEBUG     Posting to Tally [create_ledger:Purchase A/c] ...
+2026-07-03 13:31:13,490  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:31:13,494  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:31:13,495  DEBUG     Tally response [create_ledger:Purchase A/c]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:31:13,495  ERROR       Tally reported a LINEERROR creating ledger 'Purchase A/c': <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:31:13,496  INFO      Checking stock item: 'Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025'
+2026-07-03 13:31:13,496  INFO      Checking unit of measure: 'Nos'
+2026-07-03 13:31:13,496  DEBUG     Posting to Tally [check_unit:Nos] ...
+2026-07-03 13:31:13,499  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:31:13,503  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 98
+2026-07-03 13:31:13,503  DEBUG     Tally response [check_unit:Nos]: <RESPONSE>
+ <LINEERROR>Could not find Report &apos;List of Units&apos;!</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:31:13,506  DEBUG     Unit 'Nos' exists in Tally: False
+2026-07-03 13:31:13,506  INFO        ✗ Unit 'Nos' not found – creating
+2026-07-03 13:31:13,506  DEBUG     Posting to Tally [create_unit:Nos] ...
+2026-07-03 13:31:13,507  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:31:13,512  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:31:13,514  DEBUG     Tally response [create_unit:Nos]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:31:13,516  ERROR       Tally reported a LINEERROR creating unit 'Nos': <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:31:13,516  ERROR       Cannot ensure stock item 'Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025' – required unit 'Nos' could not be created
+2026-07-03 13:31:13,517  ERROR       One or more masters could not be created. Aborting voucher push.
+2026-07-03 13:32:21,883  INFO      ============================================================
+2026-07-03 13:32:21,883  INFO      Starting Tally ITEM INVOICE pipeline for invoice: KLKA2526-12078
+2026-07-03 13:32:21,883  INFO      ============================================================
+2026-07-03 13:32:21,883  INFO      [STEP 1] Connecting to MongoDB at mongodb://localhost:27017 ...
+2026-07-03 13:32:21,886  DEBUG     {"message": "Starting topology monitoring", "topologyId": {"$oid": "6a476c8d76fc6f504ba0c5f5"}}
+2026-07-03 13:32:21,886  DEBUG     {"message": "Topology description changed", "topologyId": {"$oid": "6a476c8d76fc6f504ba0c5f5"}, "previousDescription": "<TopologyDescription id: 6a476c8d76fc6f504ba0c5f5, topology_type: Unknown, servers: []>", "newDescription": "<TopologyDescription id: 6a476c8d76fc6f504ba0c5f5, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>"}
+2026-07-03 13:32:21,886  DEBUG     {"message": "Starting server monitoring", "topologyId": {"$oid": "6a476c8d76fc6f504ba0c5f5"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:32:21,887  DEBUG     {"message": "Connection pool created", "clientId": {"$oid": "6a476c8d76fc6f504ba0c5f5"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:32:21,890  DEBUG     {"message": "Server selection started", "selector": "Primary()", "operation": "buildinfo", "topologyDescription": "<TopologyDescription id: 6a476c8d76fc6f504ba0c5f5, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a476c8d76fc6f504ba0c5f5"}}
+2026-07-03 13:32:21,891  DEBUG     {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "buildinfo", "topologyDescription": "<TopologyDescription id: 6a476c8d76fc6f504ba0c5f5, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a476c8d76fc6f504ba0c5f5"}, "remainingTimeMS": 5000}
+2026-07-03 13:32:21,895  DEBUG     {"message": "Server heartbeat started", "topologyId": {"$oid": "6a476c8d76fc6f504ba0c5f5"}, "driverConnectionId": 1, "serverHost": "localhost", "serverPort": 27017, "awaited": false}
+2026-07-03 13:32:21,896  DEBUG     {"message": "Server heartbeat succeeded", "topologyId": {"$oid": "6a476c8d76fc6f504ba0c5f5"}, "driverConnectionId": 1, "serverConnectionId": 543, "serverHost": "localhost", "serverPort": 27017, "awaited": false, "durationMS": 0.0, "reply": "{\"helloOk\": true, \"ismaster\": true, \"topologyVersion\": {\"processId\": {\"$oid\": \"6a42672695a9dc8da777b2d6\"}}, \"maxBsonObjectSize\": 16777216, \"maxMessageSizeBytes\": 48000000, \"maxWriteBatchSize\": 100000, \"localTime\": {\"$date\": \"2026-07-03T08:02:21.897Z\"}, \"logicalSessionTimeoutMinutes\": 30, \"connectionId\": 543, \"maxWireVersion\": 27, \"ok\": 1.0}"}
+2026-07-03 13:32:21,897  DEBUG     {"message": "Connection pool ready", "clientId": {"$oid": "6a476c8d76fc6f504ba0c5f5"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:32:21,897  DEBUG     {"message": "Topology description changed", "topologyId": {"$oid": "6a476c8d76fc6f504ba0c5f5"}, "previousDescription": "<TopologyDescription id: 6a476c8d76fc6f504ba0c5f5, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "newDescription": "<TopologyDescription id: 6a476c8d76fc6f504ba0c5f5, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>"}
+2026-07-03 13:32:21,898  DEBUG     {"message": "Server selection succeeded", "selector": "Primary()", "operation": "buildinfo", "topologyDescription": "<TopologyDescription id: 6a476c8d76fc6f504ba0c5f5, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>", "clientId": {"$oid": "6a476c8d76fc6f504ba0c5f5"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:32:21,898  DEBUG     {"message": "Server heartbeat started", "topologyId": {"$oid": "6a476c8d76fc6f504ba0c5f5"}, "driverConnectionId": 1, "serverConnectionId": 543, "serverHost": "localhost", "serverPort": 27017, "awaited": true}
+2026-07-03 13:32:21,898  DEBUG     {"message": "Connection checkout started", "clientId": {"$oid": "6a476c8d76fc6f504ba0c5f5"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:32:21,899  DEBUG     {"message": "Connection created", "clientId": {"$oid": "6a476c8d76fc6f504ba0c5f5"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1}
+2026-07-03 13:32:21,901  DEBUG     {"message": "Connection ready", "clientId": {"$oid": "6a476c8d76fc6f504ba0c5f5"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.0}
+2026-07-03 13:32:21,902  DEBUG     {"message": "Connection checked out", "clientId": {"$oid": "6a476c8d76fc6f504ba0c5f5"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.015000000013969839}
+2026-07-03 13:32:21,902  DEBUG     {"message": "Command started", "clientId": {"$oid": "6a476c8d76fc6f504ba0c5f5"}, "command": "{\"buildinfo\": 1, \"lsid\": {\"id\": {\"$binary\": {\"base64\": \"sskHBiHVTH6npQcziR1JxQ==\", \"subType\": \"04\"}}}, \"$db\": \"admin\"}", "commandName": "buildinfo", "databaseName": "admin", "requestId": 18467, "operationId": 18467, "driverConnectionId": 1, "serverConnectionId": 545, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:32:21,903  DEBUG     {"message": "Command succeeded", "clientId": {"$oid": "6a476c8d76fc6f504ba0c5f5"}, "durationMS": 1.002, "reply": "{\"version\": \"8.2.6\", \"versionArray\": [8, 2, 6], \"gitVersion\": \"5d25c835745d06f712320b6cdae9d50b7b43663e\", \"targetMinOS\": \"Windows 7/Windows Server 2008 R2\", \"allocator\": \"tcmalloc-gperf\", \"javascriptEngine\": \"mozjs\", \"sysinfo\": \"deprecated\", \"openssl\": {\"running\": \"Windows SChannel\"}, \"buildEnvironment\": {\"distmod\": \"windows\", \"cc\": \"C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.31.31103/bin/HostX64/x64/cl.exe: version unknown\", \"ccflags\": \"/nologo /DNOMINMAX /D_CRT_SECURE_NO_DEPRECATE /D_CRT_SECURE_NO_WARNINGS /bigobj /Zm500 /EHsc /wd4351 /wd4291 /wd4250 /wd4996 /std:c++20 /utf-8 /diagnostics:caret /errorReport:none /permissive- /Zc:__cplusplus /Zc:sizedDealloc /volatile:iso /fp:strict /showIncludes /O2 /Oy- /DNDEBUG /wd4117 -D__DATE__=\"redacted\" -D__TIMESTAMP__=\"redacted\" -D__TIME__=\"redacted\" /Zc:inline /D_WIN32_WINNT=0x0A00 /DBOOST_USE_WINAPI_VERSION=0x0A00 /DNTDDI_VERSION=0x0A000000 -Isrc -I$(GENDIR)/src -I$(GENDIR)/src/mongo/db/modules/enterpri...", "commandName": "buildinfo", "databaseName": "admin", "requestId": 18467, "operationId": 18467, "driverConnectionId": 1, "serverConnectionId": 545, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:32:21,907  DEBUG     {"message": "Connection checked in", "clientId": {"$oid": "6a476c8d76fc6f504ba0c5f5"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1}
+2026-07-03 13:32:21,907  INFO        Connected to DB 'IDP', collection 'invoices'
+2026-07-03 13:32:21,908  INFO      [STEP 1] Searching for invoice 'KLKA2526-12078' ...
+2026-07-03 13:32:21,908  DEBUG     {"message": "Server selection started", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6a476c8d76fc6f504ba0c5f5, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>", "clientId": {"$oid": "6a476c8d76fc6f504ba0c5f5"}}
+2026-07-03 13:32:21,909  DEBUG     {"message": "Server selection succeeded", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6a476c8d76fc6f504ba0c5f5, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>", "clientId": {"$oid": "6a476c8d76fc6f504ba0c5f5"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:32:21,909  DEBUG     {"message": "Connection checkout started", "clientId": {"$oid": "6a476c8d76fc6f504ba0c5f5"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:32:21,910  DEBUG     {"message": "Connection checked out", "clientId": {"$oid": "6a476c8d76fc6f504ba0c5f5"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.0}
+2026-07-03 13:32:21,910  DEBUG     {"message": "Command started", "clientId": {"$oid": "6a476c8d76fc6f504ba0c5f5"}, "command": "{\"find\": \"invoices\", \"filter\": {\"$or\": [{\"gemini.json.invoice_number\": \"KLKA2526-12078\"}, {\"gemini.json.invoice\": \"KLKA2526-12078\"}]}, \"sort\": {\"_id\": -1}, \"limit\": 1, \"singleBatch\": true, \"lsid\": {\"id\": {\"$binary\": {\"base64\": \"sskHBiHVTH6npQcziR1JxQ==\", \"subType\": \"04\"}}}, \"$db\": \"IDP\"}", "commandName": "find", "databaseName": "IDP", "requestId": 6334, "operationId": 6334, "driverConnectionId": 1, "serverConnectionId": 545, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:32:21,912  DEBUG     {"message": "Command succeeded", "clientId": {"$oid": "6a476c8d76fc6f504ba0c5f5"}, "durationMS": 2.033, "reply": "{\"cursor\": {\"firstBatch\": [{\"_id\": {\"$oid\": \"6a3e30e37a939c14beb0764f\"}, \"file_path\": \"D:\\IDP_2.0-INVOICE\\dist\\IDP-Invoice\\invoices_data\\Completed\\SD-1.jpeg\", \"uploaded_file_path\": \"D:\\IDP_2.0-INVOICE\\dist\\IDP-Invoice\\invoices_data\\Completed\\SD-1.jpeg\", \"ocr_text\": \"Tax Invoice\nKre38 Labs Pvt Ltd\nInvoice No.\npaeed\nNo.354.1st C Cross RoadKoramangla 8th Block\nKLKA2526-12078\n1-Dec-25\nKoramangala BengaluruBengaluru Urban\nKarnataka,560095\nGSTIN/UIN:29AAHCK0414C1ZZ\nState Name:Karnataka,Code:29\nCIN:U74999KA2018PTC111891\nBuyer (Bill to)\nMY HOME JEWEL FLAT OWNERS MAINTENANCE MUTUALIY AIDED CO-OP SOCIETY LIMITED\nSY NO 83 97.My Home Jewel,Madinaguda\nHyderabad,Rangareddy. Telangana\nGSTIN/UIN\n36AATAM7466Q1ZB\nState Name\nTelanganaCode:36\nSI\nDescription of\nHSN/SAC\nQuantity\nRate\nper\nAmount\nNo.\nServices\n1 Waltr A Monthly Subscription\n998319\n28 Nos\n499.00Nos\n13,972.00\nWater Level &Usage Monitor\n01/12/2025 to 31/12/2025\nLess:\nDiscount\n-4,319.00\n154.25*28=...", "commandName": "find", "databaseName": "IDP", "requestId": 6334, "operationId": 6334, "driverConnectionId": 1, "serverConnectionId": 545, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:32:21,912  DEBUG     {"message": "Connection checked in", "clientId": {"$oid": "6a476c8d76fc6f504ba0c5f5"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1}
+2026-07-03 13:32:21,913  INFO        ✓ Invoice found in MongoDB (document _id: 6a3e30e37a939c14beb0764f)
+2026-07-03 13:32:21,913  INFO      [STEP 2] Converting document to invoice structure ...
+2026-07-03 13:32:21,917  DEBUG     Date '1-Dec-25' matched format '%d-%b-%y' → 20251201
+2026-07-03 13:32:21,918  INFO        ✓ Converted successfully
+2026-07-03 13:32:21,918  INFO          Vendor      : Kre38 Labs Pvt Ltd
+2026-07-03 13:32:21,918  INFO          Date        : 20251201
+2026-07-03 13:32:21,918  INFO          Total       : 11391.0
+2026-07-03 13:32:21,918  INFO          Line items  : 1
+2026-07-03 13:32:21,919  INFO            - Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025 | qty=28.0 Nos | rate=499.0 | amount=13972.0
+2026-07-03 13:32:21,919  INFO        Converted JSON saved to: invoices_data\tally_json\KLKA2526-12078_converted.json
+2026-07-03 13:32:21,920  INFO      [STEP 3] Resolving target Tally company name ...
+2026-07-03 13:32:21,920  INFO      Using TALLY_COMPANY from env: 'Test_fy_26'
+2026-07-03 13:32:21,920  INFO        Using Tally company: 'Test_fy_26'
+2026-07-03 13:32:21,920  INFO      [STEP 4] Verifying / creating masters in Tally ...
+2026-07-03 13:32:21,920  INFO      Checking ledger: 'Kre38 Labs Pvt Ltd'
+2026-07-03 13:32:21,921  DEBUG     Posting to Tally [check_ledger:Kre38 Labs Pvt Ltd] ...
+2026-07-03 13:32:21,923  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:32:21,931  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:32:21,932  DEBUG     Tally response [check_ledger:Kre38 Labs Pvt Ltd]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:32:21,933  DEBUG     Ledger 'Kre38 Labs Pvt Ltd' exists in Tally: False
+2026-07-03 13:32:21,933  INFO        ✗ Ledger 'Kre38 Labs Pvt Ltd' not found – creating under 'Sundry Creditors'
+2026-07-03 13:32:21,934  DEBUG     Posting to Tally [create_ledger:Kre38 Labs Pvt Ltd] ...
+2026-07-03 13:32:21,935  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:32:21,940  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:32:21,941  DEBUG     Tally response [create_ledger:Kre38 Labs Pvt Ltd]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:32:21,943  ERROR       Tally reported a LINEERROR creating ledger 'Kre38 Labs Pvt Ltd': <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:32:21,943  INFO      Checking ledger: 'Purchase A/c'
+2026-07-03 13:32:21,943  DEBUG     Posting to Tally [check_ledger:Purchase A/c] ...
+2026-07-03 13:32:21,945  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:32:21,951  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:32:21,951  DEBUG     Tally response [check_ledger:Purchase A/c]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:32:21,952  DEBUG     Ledger 'Purchase A/c' exists in Tally: False
+2026-07-03 13:32:21,952  INFO        ✗ Ledger 'Purchase A/c' not found – creating under 'Purchase Accounts'
+2026-07-03 13:32:21,952  DEBUG     Posting to Tally [create_ledger:Purchase A/c] ...
+2026-07-03 13:32:21,953  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:32:21,970  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:32:21,971  DEBUG     Tally response [create_ledger:Purchase A/c]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:32:21,972  ERROR       Tally reported a LINEERROR creating ledger 'Purchase A/c': <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:32:21,972  INFO      Checking stock item: 'Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025'
+2026-07-03 13:32:21,972  INFO      Checking unit of measure: 'Nos'
+2026-07-03 13:32:21,972  DEBUG     Posting to Tally [check_unit:Nos] ...
+2026-07-03 13:32:21,973  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:32:22,001  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 98
+2026-07-03 13:32:22,002  DEBUG     Tally response [check_unit:Nos]: <RESPONSE>
+ <LINEERROR>Could not find Report &apos;List of Units&apos;!</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:32:22,002  DEBUG     Unit 'Nos' exists in Tally: False
+2026-07-03 13:32:22,002  INFO        ✗ Unit 'Nos' not found – creating
+2026-07-03 13:32:22,002  DEBUG     Posting to Tally [create_unit:Nos] ...
+2026-07-03 13:32:22,003  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:32:22,017  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:32:22,017  DEBUG     Tally response [create_unit:Nos]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:32:22,018  ERROR       Tally reported a LINEERROR creating unit 'Nos': <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:32:22,018  ERROR       Cannot ensure stock item 'Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025' – required unit 'Nos' could not be created
+2026-07-03 13:32:22,019  ERROR       One or more masters could not be created. Aborting voucher push.
+2026-07-03 13:33:10,764  INFO      ============================================================
+2026-07-03 13:33:10,764  INFO      Starting Tally ITEM INVOICE pipeline for invoice: KLKA2526-12078
+2026-07-03 13:33:10,764  INFO      ============================================================
+2026-07-03 13:33:10,764  INFO      [STEP 1] Connecting to MongoDB at mongodb://localhost:27017 ...
+2026-07-03 13:33:10,766  DEBUG     {"message": "Starting topology monitoring", "topologyId": {"$oid": "6a476cbef9640c7aa6bdb3f9"}}
+2026-07-03 13:33:10,766  DEBUG     {"message": "Topology description changed", "topologyId": {"$oid": "6a476cbef9640c7aa6bdb3f9"}, "previousDescription": "<TopologyDescription id: 6a476cbef9640c7aa6bdb3f9, topology_type: Unknown, servers: []>", "newDescription": "<TopologyDescription id: 6a476cbef9640c7aa6bdb3f9, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>"}
+2026-07-03 13:33:10,766  DEBUG     {"message": "Starting server monitoring", "topologyId": {"$oid": "6a476cbef9640c7aa6bdb3f9"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:33:10,767  DEBUG     {"message": "Connection pool created", "clientId": {"$oid": "6a476cbef9640c7aa6bdb3f9"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:33:10,770  DEBUG     {"message": "Server selection started", "selector": "Primary()", "operation": "buildinfo", "topologyDescription": "<TopologyDescription id: 6a476cbef9640c7aa6bdb3f9, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a476cbef9640c7aa6bdb3f9"}}
+2026-07-03 13:33:10,770  DEBUG     {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "buildinfo", "topologyDescription": "<TopologyDescription id: 6a476cbef9640c7aa6bdb3f9, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a476cbef9640c7aa6bdb3f9"}, "remainingTimeMS": 5000}
+2026-07-03 13:33:10,773  DEBUG     {"message": "Server heartbeat started", "topologyId": {"$oid": "6a476cbef9640c7aa6bdb3f9"}, "driverConnectionId": 1, "serverHost": "localhost", "serverPort": 27017, "awaited": false}
+2026-07-03 13:33:10,775  DEBUG     {"message": "Server heartbeat succeeded", "topologyId": {"$oid": "6a476cbef9640c7aa6bdb3f9"}, "driverConnectionId": 1, "serverConnectionId": 546, "serverHost": "localhost", "serverPort": 27017, "awaited": false, "durationMS": 0.0, "reply": "{\"helloOk\": true, \"ismaster\": true, \"topologyVersion\": {\"processId\": {\"$oid\": \"6a42672695a9dc8da777b2d6\"}}, \"maxBsonObjectSize\": 16777216, \"maxMessageSizeBytes\": 48000000, \"maxWriteBatchSize\": 100000, \"localTime\": {\"$date\": \"2026-07-03T08:03:10.775Z\"}, \"logicalSessionTimeoutMinutes\": 30, \"connectionId\": 546, \"maxWireVersion\": 27, \"ok\": 1.0}"}
+2026-07-03 13:33:10,775  DEBUG     {"message": "Connection pool ready", "clientId": {"$oid": "6a476cbef9640c7aa6bdb3f9"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:33:10,776  DEBUG     {"message": "Topology description changed", "topologyId": {"$oid": "6a476cbef9640c7aa6bdb3f9"}, "previousDescription": "<TopologyDescription id: 6a476cbef9640c7aa6bdb3f9, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "newDescription": "<TopologyDescription id: 6a476cbef9640c7aa6bdb3f9, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>"}
+2026-07-03 13:33:10,776  DEBUG     {"message": "Server selection succeeded", "selector": "Primary()", "operation": "buildinfo", "topologyDescription": "<TopologyDescription id: 6a476cbef9640c7aa6bdb3f9, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>", "clientId": {"$oid": "6a476cbef9640c7aa6bdb3f9"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:33:10,777  DEBUG     {"message": "Server heartbeat started", "topologyId": {"$oid": "6a476cbef9640c7aa6bdb3f9"}, "driverConnectionId": 1, "serverConnectionId": 546, "serverHost": "localhost", "serverPort": 27017, "awaited": true}
+2026-07-03 13:33:10,777  DEBUG     {"message": "Connection checkout started", "clientId": {"$oid": "6a476cbef9640c7aa6bdb3f9"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:33:10,778  DEBUG     {"message": "Connection created", "clientId": {"$oid": "6a476cbef9640c7aa6bdb3f9"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1}
+2026-07-03 13:33:10,798  DEBUG     {"message": "Connection ready", "clientId": {"$oid": "6a476cbef9640c7aa6bdb3f9"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.0}
+2026-07-03 13:33:10,799  DEBUG     {"message": "Connection checked out", "clientId": {"$oid": "6a476cbef9640c7aa6bdb3f9"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.01600000000325963}
+2026-07-03 13:33:10,799  DEBUG     {"message": "Command started", "clientId": {"$oid": "6a476cbef9640c7aa6bdb3f9"}, "command": "{\"buildinfo\": 1, \"lsid\": {\"id\": {\"$binary\": {\"base64\": \"Ae62hX9oQBezmyHoFmt8PQ==\", \"subType\": \"04\"}}}, \"$db\": \"admin\"}", "commandName": "buildinfo", "databaseName": "admin", "requestId": 18467, "operationId": 18467, "driverConnectionId": 1, "serverConnectionId": 548, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:33:10,800  DEBUG     {"message": "Command succeeded", "clientId": {"$oid": "6a476cbef9640c7aa6bdb3f9"}, "durationMS": 0.9959999999999999, "reply": "{\"version\": \"8.2.6\", \"versionArray\": [8, 2, 6], \"gitVersion\": \"5d25c835745d06f712320b6cdae9d50b7b43663e\", \"targetMinOS\": \"Windows 7/Windows Server 2008 R2\", \"allocator\": \"tcmalloc-gperf\", \"javascriptEngine\": \"mozjs\", \"sysinfo\": \"deprecated\", \"openssl\": {\"running\": \"Windows SChannel\"}, \"buildEnvironment\": {\"distmod\": \"windows\", \"cc\": \"C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.31.31103/bin/HostX64/x64/cl.exe: version unknown\", \"ccflags\": \"/nologo /DNOMINMAX /D_CRT_SECURE_NO_DEPRECATE /D_CRT_SECURE_NO_WARNINGS /bigobj /Zm500 /EHsc /wd4351 /wd4291 /wd4250 /wd4996 /std:c++20 /utf-8 /diagnostics:caret /errorReport:none /permissive- /Zc:__cplusplus /Zc:sizedDealloc /volatile:iso /fp:strict /showIncludes /O2 /Oy- /DNDEBUG /wd4117 -D__DATE__=\"redacted\" -D__TIMESTAMP__=\"redacted\" -D__TIME__=\"redacted\" /Zc:inline /D_WIN32_WINNT=0x0A00 /DBOOST_USE_WINAPI_VERSION=0x0A00 /DNTDDI_VERSION=0x0A000000 -Isrc -I$(GENDIR)/src -I$(GENDIR)/src/mongo/db/modules/enterpri...", "commandName": "buildinfo", "databaseName": "admin", "requestId": 18467, "operationId": 18467, "driverConnectionId": 1, "serverConnectionId": 548, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:33:10,803  DEBUG     {"message": "Connection checked in", "clientId": {"$oid": "6a476cbef9640c7aa6bdb3f9"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1}
+2026-07-03 13:33:10,803  INFO        Connected to DB 'IDP', collection 'invoices'
+2026-07-03 13:33:10,804  INFO      [STEP 1] Searching for invoice 'KLKA2526-12078' ...
+2026-07-03 13:33:10,805  DEBUG     {"message": "Server selection started", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6a476cbef9640c7aa6bdb3f9, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>", "clientId": {"$oid": "6a476cbef9640c7aa6bdb3f9"}}
+2026-07-03 13:33:10,805  DEBUG     {"message": "Server selection succeeded", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6a476cbef9640c7aa6bdb3f9, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>", "clientId": {"$oid": "6a476cbef9640c7aa6bdb3f9"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:33:10,806  DEBUG     {"message": "Connection checkout started", "clientId": {"$oid": "6a476cbef9640c7aa6bdb3f9"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:33:10,807  DEBUG     {"message": "Connection checked out", "clientId": {"$oid": "6a476cbef9640c7aa6bdb3f9"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.0}
+2026-07-03 13:33:10,808  DEBUG     {"message": "Command started", "clientId": {"$oid": "6a476cbef9640c7aa6bdb3f9"}, "command": "{\"find\": \"invoices\", \"filter\": {\"$or\": [{\"gemini.json.invoice_number\": \"KLKA2526-12078\"}, {\"gemini.json.invoice\": \"KLKA2526-12078\"}]}, \"sort\": {\"_id\": -1}, \"limit\": 1, \"singleBatch\": true, \"lsid\": {\"id\": {\"$binary\": {\"base64\": \"Ae62hX9oQBezmyHoFmt8PQ==\", \"subType\": \"04\"}}}, \"$db\": \"IDP\"}", "commandName": "find", "databaseName": "IDP", "requestId": 6334, "operationId": 6334, "driverConnectionId": 1, "serverConnectionId": 548, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:33:10,809  DEBUG     {"message": "Command succeeded", "clientId": {"$oid": "6a476cbef9640c7aa6bdb3f9"}, "durationMS": 1.9980000000000002, "reply": "{\"cursor\": {\"firstBatch\": [{\"_id\": {\"$oid\": \"6a3e30e37a939c14beb0764f\"}, \"file_path\": \"D:\\IDP_2.0-INVOICE\\dist\\IDP-Invoice\\invoices_data\\Completed\\SD-1.jpeg\", \"uploaded_file_path\": \"D:\\IDP_2.0-INVOICE\\dist\\IDP-Invoice\\invoices_data\\Completed\\SD-1.jpeg\", \"ocr_text\": \"Tax Invoice\nKre38 Labs Pvt Ltd\nInvoice No.\npaeed\nNo.354.1st C Cross RoadKoramangla 8th Block\nKLKA2526-12078\n1-Dec-25\nKoramangala BengaluruBengaluru Urban\nKarnataka,560095\nGSTIN/UIN:29AAHCK0414C1ZZ\nState Name:Karnataka,Code:29\nCIN:U74999KA2018PTC111891\nBuyer (Bill to)\nMY HOME JEWEL FLAT OWNERS MAINTENANCE MUTUALIY AIDED CO-OP SOCIETY LIMITED\nSY NO 83 97.My Home Jewel,Madinaguda\nHyderabad,Rangareddy. Telangana\nGSTIN/UIN\n36AATAM7466Q1ZB\nState Name\nTelanganaCode:36\nSI\nDescription of\nHSN/SAC\nQuantity\nRate\nper\nAmount\nNo.\nServices\n1 Waltr A Monthly Subscription\n998319\n28 Nos\n499.00Nos\n13,972.00\nWater Level &Usage Monitor\n01/12/2025 to 31/12/2025\nLess:\nDiscount\n-4,319.00\n154.25*28=...", "commandName": "find", "databaseName": "IDP", "requestId": 6334, "operationId": 6334, "driverConnectionId": 1, "serverConnectionId": 548, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:33:10,810  DEBUG     {"message": "Connection checked in", "clientId": {"$oid": "6a476cbef9640c7aa6bdb3f9"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1}
+2026-07-03 13:33:10,810  INFO        ✓ Invoice found in MongoDB (document _id: 6a3e30e37a939c14beb0764f)
+2026-07-03 13:33:10,810  INFO      [STEP 2] Converting document to invoice structure ...
+2026-07-03 13:33:10,813  DEBUG     Date '1-Dec-25' matched format '%d-%b-%y' → 20251201
+2026-07-03 13:33:10,814  INFO        ✓ Converted successfully
+2026-07-03 13:33:10,814  INFO          Vendor      : Kre38 Labs Pvt Ltd
+2026-07-03 13:33:10,814  INFO          Date        : 20251201
+2026-07-03 13:33:10,814  INFO          Total       : 11391.0
+2026-07-03 13:33:10,815  INFO          Line items  : 1
+2026-07-03 13:33:10,815  INFO            - Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025 | qty=28.0 Nos | rate=499.0 | amount=13972.0
+2026-07-03 13:33:10,816  INFO        Converted JSON saved to: invoices_data\tally_json\KLKA2526-12078_converted.json
+2026-07-03 13:33:10,816  INFO      [STEP 3] Resolving target Tally company name ...
+2026-07-03 13:33:10,816  INFO      Using TALLY_COMPANY from env: 'Test_fy_26'
+2026-07-03 13:33:10,816  INFO        Using Tally company: 'Test_fy_26'
+2026-07-03 13:33:10,816  INFO      [STEP 4] Verifying / creating masters in Tally ...
+2026-07-03 13:33:10,817  INFO      Checking ledger: 'Kre38 Labs Pvt Ltd'
+2026-07-03 13:33:10,817  DEBUG     Posting to Tally [check_ledger:Kre38 Labs Pvt Ltd] ...
+2026-07-03 13:33:10,819  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:33:10,830  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:33:10,831  DEBUG     Tally response [check_ledger:Kre38 Labs Pvt Ltd]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:33:10,832  DEBUG     Ledger 'Kre38 Labs Pvt Ltd' exists in Tally: False
+2026-07-03 13:33:10,832  INFO        ✗ Ledger 'Kre38 Labs Pvt Ltd' not found – creating under 'Sundry Creditors'
+2026-07-03 13:33:10,832  DEBUG     Posting to Tally [create_ledger:Kre38 Labs Pvt Ltd] ...
+2026-07-03 13:33:10,833  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:33:10,847  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:33:10,848  DEBUG     Tally response [create_ledger:Kre38 Labs Pvt Ltd]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:33:10,849  ERROR       Tally reported a LINEERROR creating ledger 'Kre38 Labs Pvt Ltd': <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:33:10,849  INFO      Checking ledger: 'Purchase A/c'
+2026-07-03 13:33:10,849  DEBUG     Posting to Tally [check_ledger:Purchase A/c] ...
+2026-07-03 13:33:10,850  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:33:10,880  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:33:10,881  DEBUG     Tally response [check_ledger:Purchase A/c]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:33:10,882  DEBUG     Ledger 'Purchase A/c' exists in Tally: False
+2026-07-03 13:33:10,882  INFO        ✗ Ledger 'Purchase A/c' not found – creating under 'Purchase Accounts'
+2026-07-03 13:33:10,882  DEBUG     Posting to Tally [create_ledger:Purchase A/c] ...
+2026-07-03 13:33:10,883  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:33:10,910  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:33:10,911  DEBUG     Tally response [create_ledger:Purchase A/c]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:33:10,911  ERROR       Tally reported a LINEERROR creating ledger 'Purchase A/c': <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:33:10,912  INFO      Checking stock item: 'Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025'
+2026-07-03 13:33:10,912  INFO      Checking unit of measure: 'Nos'
+2026-07-03 13:33:10,912  DEBUG     Posting to Tally [check_unit:Nos] ...
+2026-07-03 13:33:10,913  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:33:10,942  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 98
+2026-07-03 13:33:10,942  DEBUG     Tally response [check_unit:Nos]: <RESPONSE>
+ <LINEERROR>Could not find Report &apos;List of Units&apos;!</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:33:10,943  DEBUG     Unit 'Nos' exists in Tally: False
+2026-07-03 13:33:10,943  INFO        ✗ Unit 'Nos' not found – creating
+2026-07-03 13:33:10,943  DEBUG     Posting to Tally [create_unit:Nos] ...
+2026-07-03 13:33:10,944  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:33:10,975  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:33:10,976  DEBUG     Tally response [create_unit:Nos]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:33:10,976  ERROR       Tally reported a LINEERROR creating unit 'Nos': <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:33:10,977  ERROR       Cannot ensure stock item 'Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025' – required unit 'Nos' could not be created
+2026-07-03 13:33:10,977  ERROR       One or more masters could not be created. Aborting voucher push.
+2026-07-03 13:35:06,304  INFO      ============================================================
+2026-07-03 13:35:06,305  INFO      Starting Tally ITEM INVOICE pipeline for invoice: KLKA2526-12078
+2026-07-03 13:35:06,305  INFO      ============================================================
+2026-07-03 13:35:06,305  INFO      [STEP 1] Connecting to MongoDB at mongodb://localhost:27017 ...
+2026-07-03 13:35:06,307  DEBUG     {"message": "Starting topology monitoring", "topologyId": {"$oid": "6a476d323e9b6f6e8e7b45b1"}}
+2026-07-03 13:35:06,308  DEBUG     {"message": "Topology description changed", "topologyId": {"$oid": "6a476d323e9b6f6e8e7b45b1"}, "previousDescription": "<TopologyDescription id: 6a476d323e9b6f6e8e7b45b1, topology_type: Unknown, servers: []>", "newDescription": "<TopologyDescription id: 6a476d323e9b6f6e8e7b45b1, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>"}
+2026-07-03 13:35:06,308  DEBUG     {"message": "Starting server monitoring", "topologyId": {"$oid": "6a476d323e9b6f6e8e7b45b1"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:35:06,309  DEBUG     {"message": "Connection pool created", "clientId": {"$oid": "6a476d323e9b6f6e8e7b45b1"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:35:06,312  DEBUG     {"message": "Server selection started", "selector": "Primary()", "operation": "buildinfo", "topologyDescription": "<TopologyDescription id: 6a476d323e9b6f6e8e7b45b1, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a476d323e9b6f6e8e7b45b1"}}
+2026-07-03 13:35:06,312  DEBUG     {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "buildinfo", "topologyDescription": "<TopologyDescription id: 6a476d323e9b6f6e8e7b45b1, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a476d323e9b6f6e8e7b45b1"}, "remainingTimeMS": 5000}
+2026-07-03 13:35:06,316  DEBUG     {"message": "Server heartbeat started", "topologyId": {"$oid": "6a476d323e9b6f6e8e7b45b1"}, "driverConnectionId": 1, "serverHost": "localhost", "serverPort": 27017, "awaited": false}
+2026-07-03 13:35:06,318  DEBUG     {"message": "Server heartbeat succeeded", "topologyId": {"$oid": "6a476d323e9b6f6e8e7b45b1"}, "driverConnectionId": 1, "serverConnectionId": 549, "serverHost": "localhost", "serverPort": 27017, "awaited": false, "durationMS": 0.0, "reply": "{\"helloOk\": true, \"ismaster\": true, \"topologyVersion\": {\"processId\": {\"$oid\": \"6a42672695a9dc8da777b2d6\"}}, \"maxBsonObjectSize\": 16777216, \"maxMessageSizeBytes\": 48000000, \"maxWriteBatchSize\": 100000, \"localTime\": {\"$date\": \"2026-07-03T08:05:06.318Z\"}, \"logicalSessionTimeoutMinutes\": 30, \"connectionId\": 549, \"maxWireVersion\": 27, \"ok\": 1.0}"}
+2026-07-03 13:35:06,318  DEBUG     {"message": "Connection pool ready", "clientId": {"$oid": "6a476d323e9b6f6e8e7b45b1"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:35:06,319  DEBUG     {"message": "Topology description changed", "topologyId": {"$oid": "6a476d323e9b6f6e8e7b45b1"}, "previousDescription": "<TopologyDescription id: 6a476d323e9b6f6e8e7b45b1, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "newDescription": "<TopologyDescription id: 6a476d323e9b6f6e8e7b45b1, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>"}
+2026-07-03 13:35:06,319  DEBUG     {"message": "Server selection succeeded", "selector": "Primary()", "operation": "buildinfo", "topologyDescription": "<TopologyDescription id: 6a476d323e9b6f6e8e7b45b1, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>", "clientId": {"$oid": "6a476d323e9b6f6e8e7b45b1"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:35:06,320  DEBUG     {"message": "Server heartbeat started", "topologyId": {"$oid": "6a476d323e9b6f6e8e7b45b1"}, "driverConnectionId": 1, "serverConnectionId": 549, "serverHost": "localhost", "serverPort": 27017, "awaited": true}
+2026-07-03 13:35:06,320  DEBUG     {"message": "Connection checkout started", "clientId": {"$oid": "6a476d323e9b6f6e8e7b45b1"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:35:06,321  DEBUG     {"message": "Connection created", "clientId": {"$oid": "6a476d323e9b6f6e8e7b45b1"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1}
+2026-07-03 13:35:06,323  DEBUG     {"message": "Connection ready", "clientId": {"$oid": "6a476d323e9b6f6e8e7b45b1"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.0}
+2026-07-03 13:35:06,324  DEBUG     {"message": "Connection checked out", "clientId": {"$oid": "6a476d323e9b6f6e8e7b45b1"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.015000000013969839}
+2026-07-03 13:35:06,325  DEBUG     {"message": "Command started", "clientId": {"$oid": "6a476d323e9b6f6e8e7b45b1"}, "command": "{\"buildinfo\": 1, \"lsid\": {\"id\": {\"$binary\": {\"base64\": \"yYDYwUi1Sb+C7hnV9jGQnQ==\", \"subType\": \"04\"}}}, \"$db\": \"admin\"}", "commandName": "buildinfo", "databaseName": "admin", "requestId": 18467, "operationId": 18467, "driverConnectionId": 1, "serverConnectionId": 551, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:35:06,326  DEBUG     {"message": "Command succeeded", "clientId": {"$oid": "6a476d323e9b6f6e8e7b45b1"}, "durationMS": 0.987, "reply": "{\"version\": \"8.2.6\", \"versionArray\": [8, 2, 6], \"gitVersion\": \"5d25c835745d06f712320b6cdae9d50b7b43663e\", \"targetMinOS\": \"Windows 7/Windows Server 2008 R2\", \"allocator\": \"tcmalloc-gperf\", \"javascriptEngine\": \"mozjs\", \"sysinfo\": \"deprecated\", \"openssl\": {\"running\": \"Windows SChannel\"}, \"buildEnvironment\": {\"distmod\": \"windows\", \"cc\": \"C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.31.31103/bin/HostX64/x64/cl.exe: version unknown\", \"ccflags\": \"/nologo /DNOMINMAX /D_CRT_SECURE_NO_DEPRECATE /D_CRT_SECURE_NO_WARNINGS /bigobj /Zm500 /EHsc /wd4351 /wd4291 /wd4250 /wd4996 /std:c++20 /utf-8 /diagnostics:caret /errorReport:none /permissive- /Zc:__cplusplus /Zc:sizedDealloc /volatile:iso /fp:strict /showIncludes /O2 /Oy- /DNDEBUG /wd4117 -D__DATE__=\"redacted\" -D__TIMESTAMP__=\"redacted\" -D__TIME__=\"redacted\" /Zc:inline /D_WIN32_WINNT=0x0A00 /DBOOST_USE_WINAPI_VERSION=0x0A00 /DNTDDI_VERSION=0x0A000000 -Isrc -I$(GENDIR)/src -I$(GENDIR)/src/mongo/db/modules/enterpri...", "commandName": "buildinfo", "databaseName": "admin", "requestId": 18467, "operationId": 18467, "driverConnectionId": 1, "serverConnectionId": 551, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:35:06,331  DEBUG     {"message": "Connection checked in", "clientId": {"$oid": "6a476d323e9b6f6e8e7b45b1"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1}
+2026-07-03 13:35:06,332  INFO        Connected to DB 'IDP', collection 'invoices'
+2026-07-03 13:35:06,332  INFO      [STEP 1] Searching for invoice 'KLKA2526-12078' ...
+2026-07-03 13:35:06,332  DEBUG     {"message": "Server selection started", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6a476d323e9b6f6e8e7b45b1, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>", "clientId": {"$oid": "6a476d323e9b6f6e8e7b45b1"}}
+2026-07-03 13:35:06,333  DEBUG     {"message": "Server selection succeeded", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6a476d323e9b6f6e8e7b45b1, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>", "clientId": {"$oid": "6a476d323e9b6f6e8e7b45b1"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:35:06,333  DEBUG     {"message": "Connection checkout started", "clientId": {"$oid": "6a476d323e9b6f6e8e7b45b1"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:35:06,334  DEBUG     {"message": "Connection checked out", "clientId": {"$oid": "6a476d323e9b6f6e8e7b45b1"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.0}
+2026-07-03 13:35:06,334  DEBUG     {"message": "Command started", "clientId": {"$oid": "6a476d323e9b6f6e8e7b45b1"}, "command": "{\"find\": \"invoices\", \"filter\": {\"$or\": [{\"gemini.json.invoice_number\": \"KLKA2526-12078\"}, {\"gemini.json.invoice\": \"KLKA2526-12078\"}]}, \"sort\": {\"_id\": -1}, \"limit\": 1, \"singleBatch\": true, \"lsid\": {\"id\": {\"$binary\": {\"base64\": \"yYDYwUi1Sb+C7hnV9jGQnQ==\", \"subType\": \"04\"}}}, \"$db\": \"IDP\"}", "commandName": "find", "databaseName": "IDP", "requestId": 6334, "operationId": 6334, "driverConnectionId": 1, "serverConnectionId": 551, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:35:06,336  DEBUG     {"message": "Command succeeded", "clientId": {"$oid": "6a476d323e9b6f6e8e7b45b1"}, "durationMS": 1.9980000000000002, "reply": "{\"cursor\": {\"firstBatch\": [{\"_id\": {\"$oid\": \"6a3e30e37a939c14beb0764f\"}, \"file_path\": \"D:\\IDP_2.0-INVOICE\\dist\\IDP-Invoice\\invoices_data\\Completed\\SD-1.jpeg\", \"uploaded_file_path\": \"D:\\IDP_2.0-INVOICE\\dist\\IDP-Invoice\\invoices_data\\Completed\\SD-1.jpeg\", \"ocr_text\": \"Tax Invoice\nKre38 Labs Pvt Ltd\nInvoice No.\npaeed\nNo.354.1st C Cross RoadKoramangla 8th Block\nKLKA2526-12078\n1-Dec-25\nKoramangala BengaluruBengaluru Urban\nKarnataka,560095\nGSTIN/UIN:29AAHCK0414C1ZZ\nState Name:Karnataka,Code:29\nCIN:U74999KA2018PTC111891\nBuyer (Bill to)\nMY HOME JEWEL FLAT OWNERS MAINTENANCE MUTUALIY AIDED CO-OP SOCIETY LIMITED\nSY NO 83 97.My Home Jewel,Madinaguda\nHyderabad,Rangareddy. Telangana\nGSTIN/UIN\n36AATAM7466Q1ZB\nState Name\nTelanganaCode:36\nSI\nDescription of\nHSN/SAC\nQuantity\nRate\nper\nAmount\nNo.\nServices\n1 Waltr A Monthly Subscription\n998319\n28 Nos\n499.00Nos\n13,972.00\nWater Level &Usage Monitor\n01/12/2025 to 31/12/2025\nLess:\nDiscount\n-4,319.00\n154.25*28=...", "commandName": "find", "databaseName": "IDP", "requestId": 6334, "operationId": 6334, "driverConnectionId": 1, "serverConnectionId": 551, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:35:06,336  DEBUG     {"message": "Connection checked in", "clientId": {"$oid": "6a476d323e9b6f6e8e7b45b1"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1}
+2026-07-03 13:35:06,337  INFO        ✓ Invoice found in MongoDB (document _id: 6a3e30e37a939c14beb0764f)
+2026-07-03 13:35:06,337  INFO      [STEP 2] Converting document to invoice structure ...
+2026-07-03 13:35:06,341  DEBUG     Date '1-Dec-25' matched format '%d-%b-%y' → 20251201
+2026-07-03 13:35:06,341  INFO        ✓ Converted successfully
+2026-07-03 13:35:06,341  INFO          Vendor      : Kre38 Labs Pvt Ltd
+2026-07-03 13:35:06,341  INFO          Date        : 20251201
+2026-07-03 13:35:06,342  INFO          Total       : 11391.0
+2026-07-03 13:35:06,342  INFO          Line items  : 1
+2026-07-03 13:35:06,342  INFO            - Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025 | qty=28.0 Nos | rate=499.0 | amount=13972.0
+2026-07-03 13:35:06,343  INFO        Converted JSON saved to: invoices_data\tally_json\KLKA2526-12078_converted.json
+2026-07-03 13:35:06,343  INFO      [STEP 3] Resolving target Tally company name ...
+2026-07-03 13:35:06,344  INFO      Using TALLY_COMPANY from env: 'Test_fy_26'
+2026-07-03 13:35:06,344  INFO        Using Tally company: 'Test_fy_26'
+2026-07-03 13:35:06,344  INFO      [STEP 4] Verifying / creating masters in Tally ...
+2026-07-03 13:35:06,344  INFO      Checking ledger: 'Kre38 Labs Pvt Ltd'
+2026-07-03 13:35:06,344  DEBUG     Posting to Tally [check_ledger:Kre38 Labs Pvt Ltd] ...
+2026-07-03 13:35:06,348  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:35:06,374  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:35:06,375  DEBUG     Tally response [check_ledger:Kre38 Labs Pvt Ltd]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:35:06,375  DEBUG     Ledger 'Kre38 Labs Pvt Ltd' exists in Tally: False
+2026-07-03 13:35:06,376  INFO        ✗ Ledger 'Kre38 Labs Pvt Ltd' not found – creating under 'Sundry Creditors'
+2026-07-03 13:35:06,376  DEBUG     Posting to Tally [create_ledger:Kre38 Labs Pvt Ltd] ...
+2026-07-03 13:35:06,377  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:35:06,407  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:35:06,408  DEBUG     Tally response [create_ledger:Kre38 Labs Pvt Ltd]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:35:06,408  ERROR       Tally reported a LINEERROR creating ledger 'Kre38 Labs Pvt Ltd': <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:35:06,408  INFO      Checking ledger: 'Purchase A/c'
+2026-07-03 13:35:06,408  DEBUG     Posting to Tally [check_ledger:Purchase A/c] ...
+2026-07-03 13:35:06,410  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:35:06,418  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:35:06,418  DEBUG     Tally response [check_ledger:Purchase A/c]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:35:06,419  DEBUG     Ledger 'Purchase A/c' exists in Tally: False
+2026-07-03 13:35:06,419  INFO        ✗ Ledger 'Purchase A/c' not found – creating under 'Purchase Accounts'
+2026-07-03 13:35:06,419  DEBUG     Posting to Tally [create_ledger:Purchase A/c] ...
+2026-07-03 13:35:06,420  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:35:06,436  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:35:06,437  DEBUG     Tally response [create_ledger:Purchase A/c]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:35:06,437  ERROR       Tally reported a LINEERROR creating ledger 'Purchase A/c': <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:35:06,437  INFO      Checking stock item: 'Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025'
+2026-07-03 13:35:06,438  INFO      Checking unit of measure: 'Nos'
+2026-07-03 13:35:06,438  DEBUG     Posting to Tally [check_unit:Nos] ...
+2026-07-03 13:35:06,439  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:35:06,468  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 98
+2026-07-03 13:35:06,469  DEBUG     Tally response [check_unit:Nos]: <RESPONSE>
+ <LINEERROR>Could not find Report &apos;List of Units&apos;!</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:35:06,470  DEBUG     Unit 'Nos' exists in Tally: False
+2026-07-03 13:35:06,470  INFO        ✗ Unit 'Nos' not found – creating
+2026-07-03 13:35:06,470  DEBUG     Posting to Tally [create_unit:Nos] ...
+2026-07-03 13:35:06,471  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:35:06,500  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 109
+2026-07-03 13:35:06,501  DEBUG     Tally response [create_unit:Nos]: <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:35:06,502  ERROR       Tally reported a LINEERROR creating unit 'Nos': <RESPONSE>
+ <LINEERROR>Could not set &apos;SVCurrentCompany&apos; to &apos;Test_fy_26&apos;</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:35:06,502  ERROR       Cannot ensure stock item 'Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025' – required unit 'Nos' could not be created
+2026-07-03 13:35:06,502  ERROR       One or more masters could not be created. Aborting voucher push.
+2026-07-03 13:35:49,255  INFO      ============================================================
+2026-07-03 13:35:49,256  INFO      Starting Tally ITEM INVOICE pipeline for invoice: KLKA2526-12078
+2026-07-03 13:35:49,256  INFO      ============================================================
+2026-07-03 13:35:49,257  INFO      [STEP 1] Connecting to MongoDB at mongodb://localhost:27017 ...
+2026-07-03 13:35:49,259  DEBUG     {"message": "Starting topology monitoring", "topologyId": {"$oid": "6a476d5dad154dd21c079870"}}
+2026-07-03 13:35:49,260  DEBUG     {"message": "Topology description changed", "topologyId": {"$oid": "6a476d5dad154dd21c079870"}, "previousDescription": "<TopologyDescription id: 6a476d5dad154dd21c079870, topology_type: Unknown, servers: []>", "newDescription": "<TopologyDescription id: 6a476d5dad154dd21c079870, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>"}
+2026-07-03 13:35:49,260  DEBUG     {"message": "Starting server monitoring", "topologyId": {"$oid": "6a476d5dad154dd21c079870"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:35:49,260  DEBUG     {"message": "Connection pool created", "clientId": {"$oid": "6a476d5dad154dd21c079870"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:35:49,263  DEBUG     {"message": "Server selection started", "selector": "Primary()", "operation": "buildinfo", "topologyDescription": "<TopologyDescription id: 6a476d5dad154dd21c079870, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a476d5dad154dd21c079870"}}
+2026-07-03 13:35:49,264  DEBUG     {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "buildinfo", "topologyDescription": "<TopologyDescription id: 6a476d5dad154dd21c079870, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a476d5dad154dd21c079870"}, "remainingTimeMS": 5000}
+2026-07-03 13:35:49,267  DEBUG     {"message": "Server heartbeat started", "topologyId": {"$oid": "6a476d5dad154dd21c079870"}, "driverConnectionId": 1, "serverHost": "localhost", "serverPort": 27017, "awaited": false}
+2026-07-03 13:35:49,268  DEBUG     {"message": "Server heartbeat succeeded", "topologyId": {"$oid": "6a476d5dad154dd21c079870"}, "driverConnectionId": 1, "serverConnectionId": 552, "serverHost": "localhost", "serverPort": 27017, "awaited": false, "durationMS": 0.0, "reply": "{\"helloOk\": true, \"ismaster\": true, \"topologyVersion\": {\"processId\": {\"$oid\": \"6a42672695a9dc8da777b2d6\"}}, \"maxBsonObjectSize\": 16777216, \"maxMessageSizeBytes\": 48000000, \"maxWriteBatchSize\": 100000, \"localTime\": {\"$date\": \"2026-07-03T08:05:49.268Z\"}, \"logicalSessionTimeoutMinutes\": 30, \"connectionId\": 552, \"maxWireVersion\": 27, \"ok\": 1.0}"}
+2026-07-03 13:35:49,269  DEBUG     {"message": "Connection pool ready", "clientId": {"$oid": "6a476d5dad154dd21c079870"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:35:49,269  DEBUG     {"message": "Topology description changed", "topologyId": {"$oid": "6a476d5dad154dd21c079870"}, "previousDescription": "<TopologyDescription id: 6a476d5dad154dd21c079870, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "newDescription": "<TopologyDescription id: 6a476d5dad154dd21c079870, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>"}
+2026-07-03 13:35:49,270  DEBUG     {"message": "Server selection succeeded", "selector": "Primary()", "operation": "buildinfo", "topologyDescription": "<TopologyDescription id: 6a476d5dad154dd21c079870, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>", "clientId": {"$oid": "6a476d5dad154dd21c079870"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:35:49,270  DEBUG     {"message": "Server heartbeat started", "topologyId": {"$oid": "6a476d5dad154dd21c079870"}, "driverConnectionId": 1, "serverConnectionId": 552, "serverHost": "localhost", "serverPort": 27017, "awaited": true}
+2026-07-03 13:35:49,270  DEBUG     {"message": "Connection checkout started", "clientId": {"$oid": "6a476d5dad154dd21c079870"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:35:49,271  DEBUG     {"message": "Connection created", "clientId": {"$oid": "6a476d5dad154dd21c079870"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1}
+2026-07-03 13:35:49,273  DEBUG     {"message": "Connection ready", "clientId": {"$oid": "6a476d5dad154dd21c079870"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.0}
+2026-07-03 13:35:49,274  DEBUG     {"message": "Connection checked out", "clientId": {"$oid": "6a476d5dad154dd21c079870"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.0}
+2026-07-03 13:35:49,274  DEBUG     {"message": "Command started", "clientId": {"$oid": "6a476d5dad154dd21c079870"}, "command": "{\"buildinfo\": 1, \"lsid\": {\"id\": {\"$binary\": {\"base64\": \"+H7PSP5ZRjytFFNaHQU7Gg==\", \"subType\": \"04\"}}}, \"$db\": \"admin\"}", "commandName": "buildinfo", "databaseName": "admin", "requestId": 18467, "operationId": 18467, "driverConnectionId": 1, "serverConnectionId": 554, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:35:49,276  DEBUG     {"message": "Command succeeded", "clientId": {"$oid": "6a476d5dad154dd21c079870"}, "durationMS": 1.9849999999999999, "reply": "{\"version\": \"8.2.6\", \"versionArray\": [8, 2, 6], \"gitVersion\": \"5d25c835745d06f712320b6cdae9d50b7b43663e\", \"targetMinOS\": \"Windows 7/Windows Server 2008 R2\", \"allocator\": \"tcmalloc-gperf\", \"javascriptEngine\": \"mozjs\", \"sysinfo\": \"deprecated\", \"openssl\": {\"running\": \"Windows SChannel\"}, \"buildEnvironment\": {\"distmod\": \"windows\", \"cc\": \"C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.31.31103/bin/HostX64/x64/cl.exe: version unknown\", \"ccflags\": \"/nologo /DNOMINMAX /D_CRT_SECURE_NO_DEPRECATE /D_CRT_SECURE_NO_WARNINGS /bigobj /Zm500 /EHsc /wd4351 /wd4291 /wd4250 /wd4996 /std:c++20 /utf-8 /diagnostics:caret /errorReport:none /permissive- /Zc:__cplusplus /Zc:sizedDealloc /volatile:iso /fp:strict /showIncludes /O2 /Oy- /DNDEBUG /wd4117 -D__DATE__=\"redacted\" -D__TIMESTAMP__=\"redacted\" -D__TIME__=\"redacted\" /Zc:inline /D_WIN32_WINNT=0x0A00 /DBOOST_USE_WINAPI_VERSION=0x0A00 /DNTDDI_VERSION=0x0A000000 -Isrc -I$(GENDIR)/src -I$(GENDIR)/src/mongo/db/modules/enterpri...", "commandName": "buildinfo", "databaseName": "admin", "requestId": 18467, "operationId": 18467, "driverConnectionId": 1, "serverConnectionId": 554, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:35:49,279  DEBUG     {"message": "Connection checked in", "clientId": {"$oid": "6a476d5dad154dd21c079870"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1}
+2026-07-03 13:35:49,279  INFO        Connected to DB 'IDP', collection 'invoices'
+2026-07-03 13:35:49,280  INFO      [STEP 1] Searching for invoice 'KLKA2526-12078' ...
+2026-07-03 13:35:49,280  DEBUG     {"message": "Server selection started", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6a476d5dad154dd21c079870, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>", "clientId": {"$oid": "6a476d5dad154dd21c079870"}}
+2026-07-03 13:35:49,280  DEBUG     {"message": "Server selection succeeded", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6a476d5dad154dd21c079870, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>", "clientId": {"$oid": "6a476d5dad154dd21c079870"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:35:49,281  DEBUG     {"message": "Connection checkout started", "clientId": {"$oid": "6a476d5dad154dd21c079870"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:35:49,281  DEBUG     {"message": "Connection checked out", "clientId": {"$oid": "6a476d5dad154dd21c079870"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.0}
+2026-07-03 13:35:49,281  DEBUG     {"message": "Command started", "clientId": {"$oid": "6a476d5dad154dd21c079870"}, "command": "{\"find\": \"invoices\", \"filter\": {\"$or\": [{\"gemini.json.invoice_number\": \"KLKA2526-12078\"}, {\"gemini.json.invoice\": \"KLKA2526-12078\"}]}, \"sort\": {\"_id\": -1}, \"limit\": 1, \"singleBatch\": true, \"lsid\": {\"id\": {\"$binary\": {\"base64\": \"+H7PSP5ZRjytFFNaHQU7Gg==\", \"subType\": \"04\"}}}, \"$db\": \"IDP\"}", "commandName": "find", "databaseName": "IDP", "requestId": 6334, "operationId": 6334, "driverConnectionId": 1, "serverConnectionId": 554, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:35:49,283  DEBUG     {"message": "Command succeeded", "clientId": {"$oid": "6a476d5dad154dd21c079870"}, "durationMS": 2.005, "reply": "{\"cursor\": {\"firstBatch\": [{\"_id\": {\"$oid\": \"6a3e30e37a939c14beb0764f\"}, \"file_path\": \"D:\\IDP_2.0-INVOICE\\dist\\IDP-Invoice\\invoices_data\\Completed\\SD-1.jpeg\", \"uploaded_file_path\": \"D:\\IDP_2.0-INVOICE\\dist\\IDP-Invoice\\invoices_data\\Completed\\SD-1.jpeg\", \"ocr_text\": \"Tax Invoice\nKre38 Labs Pvt Ltd\nInvoice No.\npaeed\nNo.354.1st C Cross RoadKoramangla 8th Block\nKLKA2526-12078\n1-Dec-25\nKoramangala BengaluruBengaluru Urban\nKarnataka,560095\nGSTIN/UIN:29AAHCK0414C1ZZ\nState Name:Karnataka,Code:29\nCIN:U74999KA2018PTC111891\nBuyer (Bill to)\nMY HOME JEWEL FLAT OWNERS MAINTENANCE MUTUALIY AIDED CO-OP SOCIETY LIMITED\nSY NO 83 97.My Home Jewel,Madinaguda\nHyderabad,Rangareddy. Telangana\nGSTIN/UIN\n36AATAM7466Q1ZB\nState Name\nTelanganaCode:36\nSI\nDescription of\nHSN/SAC\nQuantity\nRate\nper\nAmount\nNo.\nServices\n1 Waltr A Monthly Subscription\n998319\n28 Nos\n499.00Nos\n13,972.00\nWater Level &Usage Monitor\n01/12/2025 to 31/12/2025\nLess:\nDiscount\n-4,319.00\n154.25*28=...", "commandName": "find", "databaseName": "IDP", "requestId": 6334, "operationId": 6334, "driverConnectionId": 1, "serverConnectionId": 554, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:35:49,283  DEBUG     {"message": "Connection checked in", "clientId": {"$oid": "6a476d5dad154dd21c079870"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1}
+2026-07-03 13:35:49,284  INFO        ✓ Invoice found in MongoDB (document _id: 6a3e30e37a939c14beb0764f)
+2026-07-03 13:35:49,284  INFO      [STEP 2] Converting document to invoice structure ...
+2026-07-03 13:35:49,287  DEBUG     Date '1-Dec-25' matched format '%d-%b-%y' → 20251201
+2026-07-03 13:35:49,288  INFO        ✓ Converted successfully
+2026-07-03 13:35:49,288  INFO          Vendor      : Kre38 Labs Pvt Ltd
+2026-07-03 13:35:49,288  INFO          Date        : 20251201
+2026-07-03 13:35:49,288  INFO          Total       : 11391.0
+2026-07-03 13:35:49,289  INFO          Line items  : 1
+2026-07-03 13:35:49,289  INFO            - Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025 | qty=28.0 Nos | rate=499.0 | amount=13972.0
+2026-07-03 13:35:49,291  INFO        Converted JSON saved to: invoices_data\tally_json\KLKA2526-12078_converted.json
+2026-07-03 13:35:49,291  INFO      [STEP 3] Resolving target Tally company name ...
+2026-07-03 13:35:49,291  INFO      Using TALLY_COMPANY from env: 'My Home Jewel Apartments'
+2026-07-03 13:35:49,291  INFO        Using Tally company: 'My Home Jewel Apartments'
+2026-07-03 13:35:49,292  INFO      [STEP 4] Verifying / creating masters in Tally ...
+2026-07-03 13:35:49,292  INFO      Checking ledger: 'Kre38 Labs Pvt Ltd'
+2026-07-03 13:35:49,292  DEBUG     Posting to Tally [check_ledger:Kre38 Labs Pvt Ltd] ...
+2026-07-03 13:35:49,294  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:35:49,369  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 9801
+2026-07-03 13:35:49,371  DEBUG     Tally response [check_ledger:Kre38 Labs Pvt Ltd]: <ENVELOPE>
+ <HEADER>
+  <TALLYREQUEST>Import Data</TALLYREQUEST>
+ </HEADER>
+ <BODY>
+  <IMPORTDATA>
+   <REQUESTDESC>
+    <REPORTNAME>All Masters</REPORTNAME>
+    <STATICVARIABLES>
+     <SVCURRENTCOMPANY>My Home Jewel Apartments</SVCURRENTCOMPANY>
+    </STATICVARIABLES>
+   </REQUESTDESC>
+  
+2026-07-03 13:35:49,375  DEBUG     Ledger 'Kre38 Labs Pvt Ltd' exists in Tally: True
+2026-07-03 13:35:49,375  INFO        ✓ Ledger 'Kre38 Labs Pvt Ltd' already exists – skipping creation
+2026-07-03 13:35:49,376  INFO      Checking ledger: 'Purchase A/c'
+2026-07-03 13:35:49,376  DEBUG     Posting to Tally [check_ledger:Purchase A/c] ...
+2026-07-03 13:35:49,378  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:35:49,417  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 9801
+2026-07-03 13:35:49,418  DEBUG     Tally response [check_ledger:Purchase A/c]: <ENVELOPE>
+ <HEADER>
+  <TALLYREQUEST>Import Data</TALLYREQUEST>
+ </HEADER>
+ <BODY>
+  <IMPORTDATA>
+   <REQUESTDESC>
+    <REPORTNAME>All Masters</REPORTNAME>
+    <STATICVARIABLES>
+     <SVCURRENTCOMPANY>My Home Jewel Apartments</SVCURRENTCOMPANY>
+    </STATICVARIABLES>
+   </REQUESTDESC>
+  
+2026-07-03 13:35:49,419  DEBUG     Ledger 'Purchase A/c' exists in Tally: True
+2026-07-03 13:35:49,419  INFO        ✓ Ledger 'Purchase A/c' already exists – skipping creation
+2026-07-03 13:35:49,419  INFO      Checking stock item: 'Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025'
+2026-07-03 13:35:49,420  INFO      Checking unit of measure: 'Nos'
+2026-07-03 13:35:49,420  DEBUG     Posting to Tally [check_unit:Nos] ...
+2026-07-03 13:35:49,421  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:35:49,449  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 98
+2026-07-03 13:35:49,449  DEBUG     Tally response [check_unit:Nos]: <RESPONSE>
+ <LINEERROR>Could not find Report &apos;List of Units&apos;!</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:35:49,450  DEBUG     Unit 'Nos' exists in Tally: False
+2026-07-03 13:35:49,450  INFO        ✗ Unit 'Nos' not found – creating
+2026-07-03 13:35:49,450  DEBUG     Posting to Tally [create_unit:Nos] ...
+2026-07-03 13:35:49,451  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:35:59,272  DEBUG     {"message": "Server heartbeat succeeded", "topologyId": {"$oid": "6a476d5dad154dd21c079870"}, "driverConnectionId": 1, "serverConnectionId": 552, "serverHost": "localhost", "serverPort": 27017, "awaited": true, "durationMS": 10000.0, "reply": "{\"isWritablePrimary\": true, \"topologyVersion\": {\"processId\": {\"$oid\": \"6a42672695a9dc8da777b2d6\"}}, \"maxBsonObjectSize\": 16777216, \"maxMessageSizeBytes\": 48000000, \"maxWriteBatchSize\": 100000, \"localTime\": {\"$date\": \"2026-07-03T08:05:59.271Z\"}, \"logicalSessionTimeoutMinutes\": 30, \"connectionId\": 552, \"maxWireVersion\": 27, \"ok\": 1.0}"}
+2026-07-03 13:35:59,273  DEBUG     {"message": "Server heartbeat started", "topologyId": {"$oid": "6a476d5dad154dd21c079870"}, "driverConnectionId": 1, "serverConnectionId": 552, "serverHost": "localhost", "serverPort": 27017, "awaited": true}
+2026-07-03 13:35:59,480  ERROR     Tally request timed out after 10s [create_unit:Nos]
+2026-07-03 13:35:59,480  ERROR       Failed to create unit 'Nos' – no response from Tally
+2026-07-03 13:35:59,481  ERROR       Cannot ensure stock item 'Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025' – required unit 'Nos' could not be created
+2026-07-03 13:35:59,481  ERROR       One or more masters could not be created. Aborting voucher push.
+2026-07-03 13:35:59,781  DEBUG     {"message": "Server heartbeat failed", "topologyId": {"$oid": "6a476d5dad154dd21c079870"}, "serverHost": "localhost", "serverPort": 27017, "awaited": true, "durationMS": 515.0000000139698, "failure": "\"_OperationCancelled('operation cancelled')\"", "driverConnectionId": 1}
+2026-07-03 13:38:24,444  INFO      ============================================================
+2026-07-03 13:38:24,445  INFO      Starting Tally ITEM INVOICE pipeline for invoice: KLKA2526-12078
+2026-07-03 13:38:24,445  INFO      ============================================================
+2026-07-03 13:38:24,446  INFO      [STEP 1] Connecting to MongoDB at mongodb://localhost:27017 ...
+2026-07-03 13:38:24,448  DEBUG     {"message": "Starting topology monitoring", "topologyId": {"$oid": "6a476df8b757fb0da12d54d6"}}
+2026-07-03 13:38:24,448  DEBUG     {"message": "Topology description changed", "topologyId": {"$oid": "6a476df8b757fb0da12d54d6"}, "previousDescription": "<TopologyDescription id: 6a476df8b757fb0da12d54d6, topology_type: Unknown, servers: []>", "newDescription": "<TopologyDescription id: 6a476df8b757fb0da12d54d6, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>"}
+2026-07-03 13:38:24,448  DEBUG     {"message": "Starting server monitoring", "topologyId": {"$oid": "6a476df8b757fb0da12d54d6"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:38:24,449  DEBUG     {"message": "Connection pool created", "clientId": {"$oid": "6a476df8b757fb0da12d54d6"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:38:24,451  DEBUG     {"message": "Server selection started", "selector": "Primary()", "operation": "buildinfo", "topologyDescription": "<TopologyDescription id: 6a476df8b757fb0da12d54d6, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a476df8b757fb0da12d54d6"}}
+2026-07-03 13:38:24,451  DEBUG     {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "buildinfo", "topologyDescription": "<TopologyDescription id: 6a476df8b757fb0da12d54d6, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a476df8b757fb0da12d54d6"}, "remainingTimeMS": 5000}
+2026-07-03 13:38:24,454  DEBUG     {"message": "Server heartbeat started", "topologyId": {"$oid": "6a476df8b757fb0da12d54d6"}, "driverConnectionId": 1, "serverHost": "localhost", "serverPort": 27017, "awaited": false}
+2026-07-03 13:38:24,455  DEBUG     {"message": "Server heartbeat succeeded", "topologyId": {"$oid": "6a476df8b757fb0da12d54d6"}, "driverConnectionId": 1, "serverConnectionId": 555, "serverHost": "localhost", "serverPort": 27017, "awaited": false, "durationMS": 0.0, "reply": "{\"helloOk\": true, \"ismaster\": true, \"topologyVersion\": {\"processId\": {\"$oid\": \"6a42672695a9dc8da777b2d6\"}}, \"maxBsonObjectSize\": 16777216, \"maxMessageSizeBytes\": 48000000, \"maxWriteBatchSize\": 100000, \"localTime\": {\"$date\": \"2026-07-03T08:08:24.455Z\"}, \"logicalSessionTimeoutMinutes\": 30, \"connectionId\": 555, \"maxWireVersion\": 27, \"ok\": 1.0}"}
+2026-07-03 13:38:24,456  DEBUG     {"message": "Connection pool ready", "clientId": {"$oid": "6a476df8b757fb0da12d54d6"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:38:24,456  DEBUG     {"message": "Topology description changed", "topologyId": {"$oid": "6a476df8b757fb0da12d54d6"}, "previousDescription": "<TopologyDescription id: 6a476df8b757fb0da12d54d6, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "newDescription": "<TopologyDescription id: 6a476df8b757fb0da12d54d6, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>"}
+2026-07-03 13:38:24,457  DEBUG     {"message": "Server selection succeeded", "selector": "Primary()", "operation": "buildinfo", "topologyDescription": "<TopologyDescription id: 6a476df8b757fb0da12d54d6, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>", "clientId": {"$oid": "6a476df8b757fb0da12d54d6"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:38:24,458  DEBUG     {"message": "Server heartbeat started", "topologyId": {"$oid": "6a476df8b757fb0da12d54d6"}, "driverConnectionId": 1, "serverConnectionId": 555, "serverHost": "localhost", "serverPort": 27017, "awaited": true}
+2026-07-03 13:38:24,458  DEBUG     {"message": "Connection checkout started", "clientId": {"$oid": "6a476df8b757fb0da12d54d6"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:38:24,459  DEBUG     {"message": "Connection created", "clientId": {"$oid": "6a476df8b757fb0da12d54d6"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1}
+2026-07-03 13:38:24,462  DEBUG     {"message": "Connection ready", "clientId": {"$oid": "6a476df8b757fb0da12d54d6"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.0}
+2026-07-03 13:38:24,462  DEBUG     {"message": "Connection checked out", "clientId": {"$oid": "6a476df8b757fb0da12d54d6"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.0}
+2026-07-03 13:38:24,463  DEBUG     {"message": "Command started", "clientId": {"$oid": "6a476df8b757fb0da12d54d6"}, "command": "{\"buildinfo\": 1, \"lsid\": {\"id\": {\"$binary\": {\"base64\": \"ccjD3b2vTpmYd+ibdFifFA==\", \"subType\": \"04\"}}}, \"$db\": \"admin\"}", "commandName": "buildinfo", "databaseName": "admin", "requestId": 18467, "operationId": 18467, "driverConnectionId": 1, "serverConnectionId": 557, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:38:24,464  DEBUG     {"message": "Command succeeded", "clientId": {"$oid": "6a476df8b757fb0da12d54d6"}, "durationMS": 1.0, "reply": "{\"version\": \"8.2.6\", \"versionArray\": [8, 2, 6], \"gitVersion\": \"5d25c835745d06f712320b6cdae9d50b7b43663e\", \"targetMinOS\": \"Windows 7/Windows Server 2008 R2\", \"allocator\": \"tcmalloc-gperf\", \"javascriptEngine\": \"mozjs\", \"sysinfo\": \"deprecated\", \"openssl\": {\"running\": \"Windows SChannel\"}, \"buildEnvironment\": {\"distmod\": \"windows\", \"cc\": \"C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.31.31103/bin/HostX64/x64/cl.exe: version unknown\", \"ccflags\": \"/nologo /DNOMINMAX /D_CRT_SECURE_NO_DEPRECATE /D_CRT_SECURE_NO_WARNINGS /bigobj /Zm500 /EHsc /wd4351 /wd4291 /wd4250 /wd4996 /std:c++20 /utf-8 /diagnostics:caret /errorReport:none /permissive- /Zc:__cplusplus /Zc:sizedDealloc /volatile:iso /fp:strict /showIncludes /O2 /Oy- /DNDEBUG /wd4117 -D__DATE__=\"redacted\" -D__TIMESTAMP__=\"redacted\" -D__TIME__=\"redacted\" /Zc:inline /D_WIN32_WINNT=0x0A00 /DBOOST_USE_WINAPI_VERSION=0x0A00 /DNTDDI_VERSION=0x0A000000 -Isrc -I$(GENDIR)/src -I$(GENDIR)/src/mongo/db/modules/enterpri...", "commandName": "buildinfo", "databaseName": "admin", "requestId": 18467, "operationId": 18467, "driverConnectionId": 1, "serverConnectionId": 557, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:38:24,467  DEBUG     {"message": "Connection checked in", "clientId": {"$oid": "6a476df8b757fb0da12d54d6"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1}
+2026-07-03 13:38:24,468  INFO        Connected to DB 'IDP', collection 'invoices'
+2026-07-03 13:38:24,468  INFO      [STEP 1] Searching for invoice 'KLKA2526-12078' ...
+2026-07-03 13:38:24,470  DEBUG     {"message": "Server selection started", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6a476df8b757fb0da12d54d6, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>", "clientId": {"$oid": "6a476df8b757fb0da12d54d6"}}
+2026-07-03 13:38:24,470  DEBUG     {"message": "Server selection succeeded", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6a476df8b757fb0da12d54d6, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>", "clientId": {"$oid": "6a476df8b757fb0da12d54d6"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:38:24,471  DEBUG     {"message": "Connection checkout started", "clientId": {"$oid": "6a476df8b757fb0da12d54d6"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:38:24,471  DEBUG     {"message": "Connection checked out", "clientId": {"$oid": "6a476df8b757fb0da12d54d6"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.0}
+2026-07-03 13:38:24,471  DEBUG     {"message": "Command started", "clientId": {"$oid": "6a476df8b757fb0da12d54d6"}, "command": "{\"find\": \"invoices\", \"filter\": {\"$or\": [{\"gemini.json.invoice_number\": \"KLKA2526-12078\"}, {\"gemini.json.invoice\": \"KLKA2526-12078\"}]}, \"sort\": {\"_id\": -1}, \"limit\": 1, \"singleBatch\": true, \"lsid\": {\"id\": {\"$binary\": {\"base64\": \"ccjD3b2vTpmYd+ibdFifFA==\", \"subType\": \"04\"}}}, \"$db\": \"IDP\"}", "commandName": "find", "databaseName": "IDP", "requestId": 6334, "operationId": 6334, "driverConnectionId": 1, "serverConnectionId": 557, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:38:24,473  DEBUG     {"message": "Command succeeded", "clientId": {"$oid": "6a476df8b757fb0da12d54d6"}, "durationMS": 2.041, "reply": "{\"cursor\": {\"firstBatch\": [{\"_id\": {\"$oid\": \"6a3e30e37a939c14beb0764f\"}, \"file_path\": \"D:\\IDP_2.0-INVOICE\\dist\\IDP-Invoice\\invoices_data\\Completed\\SD-1.jpeg\", \"uploaded_file_path\": \"D:\\IDP_2.0-INVOICE\\dist\\IDP-Invoice\\invoices_data\\Completed\\SD-1.jpeg\", \"ocr_text\": \"Tax Invoice\nKre38 Labs Pvt Ltd\nInvoice No.\npaeed\nNo.354.1st C Cross RoadKoramangla 8th Block\nKLKA2526-12078\n1-Dec-25\nKoramangala BengaluruBengaluru Urban\nKarnataka,560095\nGSTIN/UIN:29AAHCK0414C1ZZ\nState Name:Karnataka,Code:29\nCIN:U74999KA2018PTC111891\nBuyer (Bill to)\nMY HOME JEWEL FLAT OWNERS MAINTENANCE MUTUALIY AIDED CO-OP SOCIETY LIMITED\nSY NO 83 97.My Home Jewel,Madinaguda\nHyderabad,Rangareddy. Telangana\nGSTIN/UIN\n36AATAM7466Q1ZB\nState Name\nTelanganaCode:36\nSI\nDescription of\nHSN/SAC\nQuantity\nRate\nper\nAmount\nNo.\nServices\n1 Waltr A Monthly Subscription\n998319\n28 Nos\n499.00Nos\n13,972.00\nWater Level &Usage Monitor\n01/12/2025 to 31/12/2025\nLess:\nDiscount\n-4,319.00\n154.25*28=...", "commandName": "find", "databaseName": "IDP", "requestId": 6334, "operationId": 6334, "driverConnectionId": 1, "serverConnectionId": 557, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:38:24,473  DEBUG     {"message": "Connection checked in", "clientId": {"$oid": "6a476df8b757fb0da12d54d6"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1}
+2026-07-03 13:38:24,474  INFO        ✓ Invoice found in MongoDB (document _id: 6a3e30e37a939c14beb0764f)
+2026-07-03 13:38:24,474  INFO      [STEP 2] Converting document to invoice structure ...
+2026-07-03 13:38:24,479  DEBUG     Date '1-Dec-25' matched format '%d-%b-%y' → 20251201
+2026-07-03 13:38:24,479  INFO        ✓ Converted successfully
+2026-07-03 13:38:24,479  INFO          Vendor      : Kre38 Labs Pvt Ltd
+2026-07-03 13:38:24,480  INFO          Date        : 20251201
+2026-07-03 13:38:24,480  INFO          Total       : 11391.0
+2026-07-03 13:38:24,480  INFO          Line items  : 1
+2026-07-03 13:38:24,480  INFO            - Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025 | qty=28.0 Nos | rate=499.0 | amount=13972.0
+2026-07-03 13:38:24,481  INFO        Converted JSON saved to: invoices_data\tally_json\KLKA2526-12078_converted.json
+2026-07-03 13:38:24,481  INFO      [STEP 3] Resolving target Tally company name ...
+2026-07-03 13:38:24,481  INFO      Using TALLY_COMPANY from env: 'My Home Jewel Apartments'
+2026-07-03 13:38:24,482  INFO        Using Tally company: 'My Home Jewel Apartments'
+2026-07-03 13:38:24,482  INFO      [STEP 4] Verifying / creating masters in Tally ...
+2026-07-03 13:38:24,482  INFO      Checking ledger: 'Kre38 Labs Pvt Ltd'
+2026-07-03 13:38:24,482  DEBUG     Posting to Tally [check_ledger:Kre38 Labs Pvt Ltd] ...
+2026-07-03 13:38:24,485  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:38:24,574  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 9724
+2026-07-03 13:38:24,575  DEBUG     Tally response [check_ledger:Kre38 Labs Pvt Ltd]: <ENVELOPE>
+ <HEADER>
+  <TALLYREQUEST>Import Data</TALLYREQUEST>
+ </HEADER>
+ <BODY>
+  <IMPORTDATA>
+   <REQUESTDESC>
+    <REPORTNAME>All Masters</REPORTNAME>
+    <STATICVARIABLES>
+     <SVCURRENTCOMPANY>My Home Jewel Apartments</SVCURRENTCOMPANY>
+    </STATICVARIABLES>
+   </REQUESTDESC>
+  
+2026-07-03 13:38:24,576  DEBUG     Ledger 'Kre38 Labs Pvt Ltd' exists in Tally: True
+2026-07-03 13:38:24,577  INFO        ✓ Ledger 'Kre38 Labs Pvt Ltd' already exists – skipping creation
+2026-07-03 13:38:24,577  INFO      Checking ledger: 'Purchase A/c'
+2026-07-03 13:38:24,577  DEBUG     Posting to Tally [check_ledger:Purchase A/c] ...
+2026-07-03 13:38:24,578  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:38:24,645  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 9724
+2026-07-03 13:38:24,645  DEBUG     Tally response [check_ledger:Purchase A/c]: <ENVELOPE>
+ <HEADER>
+  <TALLYREQUEST>Import Data</TALLYREQUEST>
+ </HEADER>
+ <BODY>
+  <IMPORTDATA>
+   <REQUESTDESC>
+    <REPORTNAME>All Masters</REPORTNAME>
+    <STATICVARIABLES>
+     <SVCURRENTCOMPANY>My Home Jewel Apartments</SVCURRENTCOMPANY>
+    </STATICVARIABLES>
+   </REQUESTDESC>
+  
+2026-07-03 13:38:24,646  DEBUG     Ledger 'Purchase A/c' exists in Tally: True
+2026-07-03 13:38:24,646  INFO        ✓ Ledger 'Purchase A/c' already exists – skipping creation
+2026-07-03 13:38:24,646  INFO      Checking stock item: 'Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025'
+2026-07-03 13:38:24,646  INFO      Unit 'Nos' is a built-in Tally unit – skipping check/create
+2026-07-03 13:38:24,647  DEBUG     Posting to Tally [check_stock_item:Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025] ...
+2026-07-03 13:38:24,647  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:38:24,666  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 104
+2026-07-03 13:38:24,667  DEBUG     Tally response [check_stock_item:Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025]: <RESPONSE>
+ <LINEERROR>Could not find Report &apos;List of Stock Items&apos;!</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:38:24,667  DEBUG     Stock item 'Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025' exists in Tally: False
+2026-07-03 13:38:24,669  INFO        ✗ Stock item 'Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025' not found – creating under group 'Primary' (unit=Nos)
+2026-07-03 13:38:24,669  DEBUG     Posting to Tally [create_stock_item:Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025] ...
+2026-07-03 13:38:24,670  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:38:24,734  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 144
+2026-07-03 13:38:24,735  DEBUG     Tally response [create_stock_item:Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025]: <RESPONSE>
+ <CREATED>0</CREATED>
+ <ALTERED>0</ALTERED>
+ <DELETED>0</DELETED>
+ <LASTVCHID>0</LASTVCHID>
+ <LASTMID>0</LASTMID>
+ <COMBINED>0</COMBINED>
+ <IGNORED>0</IGNORED>
+ <ERRORS>0</ERRORS>
+ <CANCELLED>0</CANCELLED>
+ <EXCEPTIONS>1</EXCEPTIONS>
+</RESPONSE>
+
+2026-07-03 13:38:24,736  WARNING     Stock item 'Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025': unexpected Tally response (created=0, errors=0). Treating as success. Response: <RESPONSE>
+ <CREATED>0</CREATED>
+ <ALTERED>0</ALTERED>
+ <DELETED>0</DELETED>
+ <LASTVCHID>0</LASTVCHID>
+ <LASTMID>0</LASTMID>
+ <COMBINED>0</COMBINED>
+ <IGNORED>0</IGNORED>
+ <ERRORS>0</ERRORS>
+ <CANCELLED>0</CANCELLED>
+ <EXCEPTIONS>1</EXCEPTIONS>
+</RESPONSE>
+
+2026-07-03 13:38:24,736  INFO        ✓ All masters verified/created
+2026-07-03 13:38:24,736  INFO      [STEP 5] Pushing item-invoice purchase voucher to Tally ...
+2026-07-03 13:38:24,736  INFO      Building item-invoice voucher XML for invoice 'KLKA2526-12078'
+2026-07-03 13:38:24,737  WARNING   Voucher imbalance detected: line items sum to 13972.00 but total_amount is 11391.00 (diff=-2581.00). Auto-adjusting last line item to balance.
+2026-07-03 13:38:24,737  DEBUG     Voucher balance: credit(party)=11391.00  debit(items)=11391.00
+2026-07-03 13:38:24,738  INFO      XML saved to: invoices_data\tally_xml\KLKA2526-12078.xml
+2026-07-03 13:38:24,738  INFO      Pushing voucher to Tally (date=20251201) ...
+2026-07-03 13:38:24,738  DEBUG     Posting to Tally [push_voucher:20251201] ...
+2026-07-03 13:38:24,739  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:38:24,853  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 191
+2026-07-03 13:38:24,854  DEBUG     Tally response [push_voucher:20251201]: <RESPONSE>
+ <LINEERROR>The date 1-12-2025 is Out of Range!</LINEERROR>
+ <CREATED>0</CREATED>
+ <ALTERED>0</ALTERED>
+ <DELETED>0</DELETED>
+ <LASTVCHID>0</LASTVCHID>
+ <LASTMID>0</LASTMID>
+ <COMBINED>0</COMBINED>
+ <IGNORED>0</IGNORED>
+ <ERRORS>0</ERRORS>
+ <CANCELLED>0</CANCELLED>
+ <EXCEPTIONS
+2026-07-03 13:38:24,854  DEBUG     Voucher response parsed: {'created': 0, 'altered': 0, 'errors': 0, 'exceptions': 1, 'has_lineerror': True}
+2026-07-03 13:38:24,855  ERROR     Tally rejected the voucher with LINEERROR:
+<RESPONSE>
+ <LINEERROR>The date 1-12-2025 is Out of Range!</LINEERROR>
+ <CREATED>0</CREATED>
+ <ALTERED>0</ALTERED>
+ <DELETED>0</DELETED>
+ <LASTVCHID>0</LASTVCHID>
+ <LASTMID>0</LASTMID>
+ <COMBINED>0</COMBINED>
+ <IGNORED>0</IGNORED>
+ <ERRORS>0</ERRORS>
+ <CANCELLED>0</CANCELLED>
+ <EXCEPTIONS>1</EXCEPTIONS>
+</RESPONSE>
+
+2026-07-03 13:38:24,855  WARNING   Retrying voucher push with alternate Tally date 20260703 (invoice date was 20251201).
+2026-07-03 13:38:24,855  DEBUG     Voucher balance: credit(party)=11391.00  debit(items)=11391.00
+2026-07-03 13:38:24,856  INFO      Pushing voucher to Tally (date=20260703) ...
+2026-07-03 13:38:24,856  DEBUG     Posting to Tally [push_voucher:20260703] ...
+2026-07-03 13:38:24,857  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:38:24,933  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 253
+2026-07-03 13:38:24,934  DEBUG     Tally response [push_voucher:20260703]: <RESPONSE>
+ <LINEERROR>Voucher date is missing for: &apos;Purchase&apos; voucher 1.  Verify the data, resolve errors (if any) and retry Split.</LINEERROR>
+ <CREATED>0</CREATED>
+ <ALTERED>0</ALTERED>
+ <DELETED>0</DELETED>
+ <LASTVCHID>0</LASTVCHID>
+ <LASTMID>0</LASTMID>
+ <COMBINED>0</COMBINED>
+2026-07-03 13:38:24,934  DEBUG     Voucher response parsed: {'created': 0, 'altered': 0, 'errors': 0, 'exceptions': 1, 'has_lineerror': True}
+2026-07-03 13:38:24,934  ERROR     Tally rejected the voucher with LINEERROR:
+<RESPONSE>
+ <LINEERROR>Voucher date is missing for: &apos;Purchase&apos; voucher 1.  Verify the data, resolve errors (if any) and retry Split.</LINEERROR>
+ <CREATED>0</CREATED>
+ <ALTERED>0</ALTERED>
+ <DELETED>0</DELETED>
+ <LASTVCHID>0</LASTVCHID>
+ <LASTMID>0</LASTMID>
+ <COMBINED>0</COMBINED>
+ <IGNORED>0</IGNORED>
+ <ERRORS>0</ERRORS>
+ <CANCELLED>0</CANCELLED>
+ <EXCEPTIONS>1</EXCEPTIONS>
+</RESPONSE>
+
+2026-07-03 13:38:24,934  WARNING   Retrying voucher push with alternate Tally date 20260401 (invoice date was 20251201).
+2026-07-03 13:38:24,934  DEBUG     Voucher balance: credit(party)=11391.00  debit(items)=11391.00
+2026-07-03 13:38:24,935  INFO      Pushing voucher to Tally (date=20260401) ...
+2026-07-03 13:38:24,935  DEBUG     Posting to Tally [push_voucher:20260401] ...
+2026-07-03 13:38:24,936  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:38:25,036  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 144
+2026-07-03 13:38:25,037  DEBUG     Tally response [push_voucher:20260401]: <RESPONSE>
+ <CREATED>0</CREATED>
+ <ALTERED>0</ALTERED>
+ <DELETED>0</DELETED>
+ <LASTVCHID>0</LASTVCHID>
+ <LASTMID>0</LASTMID>
+ <COMBINED>0</COMBINED>
+ <IGNORED>0</IGNORED>
+ <ERRORS>0</ERRORS>
+ <CANCELLED>0</CANCELLED>
+ <EXCEPTIONS>1</EXCEPTIONS>
+</RESPONSE>
+
+2026-07-03 13:38:25,038  DEBUG     Voucher response parsed: {'created': 0, 'altered': 0, 'errors': 0, 'exceptions': 1, 'has_lineerror': False}
+2026-07-03 13:38:25,038  ERROR     Tally returned EXCEPTIONS=1 with CREATED=0 – voucher was NOT saved. Check the saved XML at: invoices_data\tally_xml\KLKA2526-12078.xml
+2026-07-03 13:38:25,039  ERROR     ============================================================
+2026-07-03 13:38:25,039  ERROR     ✗ Pipeline failed at voucher push for invoice: KLKA2526-12078
+2026-07-03 13:38:25,039  ERROR       Check the saved XML at: invoices_data/tally_xml/KLKA2526-12078.xml
+2026-07-03 13:38:25,039  ERROR       Check the log above for details.
+2026-07-03 13:38:25,040  ERROR     ============================================================
+2026-07-03 13:45:58,772  INFO      ============================================================
+2026-07-03 13:45:58,772  INFO      Starting Tally ITEM INVOICE pipeline for invoice: KLKA2526-12078
+2026-07-03 13:45:58,774  INFO      ============================================================
+2026-07-03 13:45:58,774  INFO      [STEP 1] Connecting to MongoDB at mongodb://localhost:27017 ...
+2026-07-03 13:45:58,776  DEBUG     {"message": "Starting topology monitoring", "topologyId": {"$oid": "6a476fbea52e0fdf282ac20a"}}
+2026-07-03 13:45:58,776  DEBUG     {"message": "Topology description changed", "topologyId": {"$oid": "6a476fbea52e0fdf282ac20a"}, "previousDescription": "<TopologyDescription id: 6a476fbea52e0fdf282ac20a, topology_type: Unknown, servers: []>", "newDescription": "<TopologyDescription id: 6a476fbea52e0fdf282ac20a, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>"}
+2026-07-03 13:45:58,776  DEBUG     {"message": "Starting server monitoring", "topologyId": {"$oid": "6a476fbea52e0fdf282ac20a"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:45:58,777  DEBUG     {"message": "Connection pool created", "clientId": {"$oid": "6a476fbea52e0fdf282ac20a"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:45:58,780  DEBUG     {"message": "Server selection started", "selector": "Primary()", "operation": "buildinfo", "topologyDescription": "<TopologyDescription id: 6a476fbea52e0fdf282ac20a, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a476fbea52e0fdf282ac20a"}}
+2026-07-03 13:45:58,780  DEBUG     {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "buildinfo", "topologyDescription": "<TopologyDescription id: 6a476fbea52e0fdf282ac20a, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a476fbea52e0fdf282ac20a"}, "remainingTimeMS": 5000}
+2026-07-03 13:45:58,783  DEBUG     {"message": "Server heartbeat started", "topologyId": {"$oid": "6a476fbea52e0fdf282ac20a"}, "driverConnectionId": 1, "serverHost": "localhost", "serverPort": 27017, "awaited": false}
+2026-07-03 13:45:58,784  DEBUG     {"message": "Server heartbeat succeeded", "topologyId": {"$oid": "6a476fbea52e0fdf282ac20a"}, "driverConnectionId": 1, "serverConnectionId": 558, "serverHost": "localhost", "serverPort": 27017, "awaited": false, "durationMS": 0.0, "reply": "{\"helloOk\": true, \"ismaster\": true, \"topologyVersion\": {\"processId\": {\"$oid\": \"6a42672695a9dc8da777b2d6\"}}, \"maxBsonObjectSize\": 16777216, \"maxMessageSizeBytes\": 48000000, \"maxWriteBatchSize\": 100000, \"localTime\": {\"$date\": \"2026-07-03T08:15:58.785Z\"}, \"logicalSessionTimeoutMinutes\": 30, \"connectionId\": 558, \"maxWireVersion\": 27, \"ok\": 1.0}"}
+2026-07-03 13:45:58,785  DEBUG     {"message": "Connection pool ready", "clientId": {"$oid": "6a476fbea52e0fdf282ac20a"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:45:58,785  DEBUG     {"message": "Topology description changed", "topologyId": {"$oid": "6a476fbea52e0fdf282ac20a"}, "previousDescription": "<TopologyDescription id: 6a476fbea52e0fdf282ac20a, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "newDescription": "<TopologyDescription id: 6a476fbea52e0fdf282ac20a, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>"}
+2026-07-03 13:45:58,787  DEBUG     {"message": "Server selection succeeded", "selector": "Primary()", "operation": "buildinfo", "topologyDescription": "<TopologyDescription id: 6a476fbea52e0fdf282ac20a, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>", "clientId": {"$oid": "6a476fbea52e0fdf282ac20a"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:45:58,788  DEBUG     {"message": "Connection checkout started", "clientId": {"$oid": "6a476fbea52e0fdf282ac20a"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:45:58,788  DEBUG     {"message": "Connection created", "clientId": {"$oid": "6a476fbea52e0fdf282ac20a"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1}
+2026-07-03 13:45:58,789  DEBUG     {"message": "Server heartbeat started", "topologyId": {"$oid": "6a476fbea52e0fdf282ac20a"}, "driverConnectionId": 1, "serverConnectionId": 558, "serverHost": "localhost", "serverPort": 27017, "awaited": true}
+2026-07-03 13:45:58,792  DEBUG     {"message": "Connection ready", "clientId": {"$oid": "6a476fbea52e0fdf282ac20a"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.0}
+2026-07-03 13:45:58,793  DEBUG     {"message": "Connection checked out", "clientId": {"$oid": "6a476fbea52e0fdf282ac20a"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.0}
+2026-07-03 13:45:58,794  DEBUG     {"message": "Command started", "clientId": {"$oid": "6a476fbea52e0fdf282ac20a"}, "command": "{\"buildinfo\": 1, \"lsid\": {\"id\": {\"$binary\": {\"base64\": \"I2t1u7HhSvi7EtFulxYB4Q==\", \"subType\": \"04\"}}}, \"$db\": \"admin\"}", "commandName": "buildinfo", "databaseName": "admin", "requestId": 18467, "operationId": 18467, "driverConnectionId": 1, "serverConnectionId": 560, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:45:58,795  DEBUG     {"message": "Command succeeded", "clientId": {"$oid": "6a476fbea52e0fdf282ac20a"}, "durationMS": 1.9940000000000002, "reply": "{\"version\": \"8.2.6\", \"versionArray\": [8, 2, 6], \"gitVersion\": \"5d25c835745d06f712320b6cdae9d50b7b43663e\", \"targetMinOS\": \"Windows 7/Windows Server 2008 R2\", \"allocator\": \"tcmalloc-gperf\", \"javascriptEngine\": \"mozjs\", \"sysinfo\": \"deprecated\", \"openssl\": {\"running\": \"Windows SChannel\"}, \"buildEnvironment\": {\"distmod\": \"windows\", \"cc\": \"C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.31.31103/bin/HostX64/x64/cl.exe: version unknown\", \"ccflags\": \"/nologo /DNOMINMAX /D_CRT_SECURE_NO_DEPRECATE /D_CRT_SECURE_NO_WARNINGS /bigobj /Zm500 /EHsc /wd4351 /wd4291 /wd4250 /wd4996 /std:c++20 /utf-8 /diagnostics:caret /errorReport:none /permissive- /Zc:__cplusplus /Zc:sizedDealloc /volatile:iso /fp:strict /showIncludes /O2 /Oy- /DNDEBUG /wd4117 -D__DATE__=\"redacted\" -D__TIMESTAMP__=\"redacted\" -D__TIME__=\"redacted\" /Zc:inline /D_WIN32_WINNT=0x0A00 /DBOOST_USE_WINAPI_VERSION=0x0A00 /DNTDDI_VERSION=0x0A000000 -Isrc -I$(GENDIR)/src -I$(GENDIR)/src/mongo/db/modules/enterpri...", "commandName": "buildinfo", "databaseName": "admin", "requestId": 18467, "operationId": 18467, "driverConnectionId": 1, "serverConnectionId": 560, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:45:58,797  DEBUG     {"message": "Connection checked in", "clientId": {"$oid": "6a476fbea52e0fdf282ac20a"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1}
+2026-07-03 13:45:58,798  INFO        Connected to DB 'IDP', collection 'invoices'
+2026-07-03 13:45:58,798  INFO      [STEP 1] Searching for invoice 'KLKA2526-12078' ...
+2026-07-03 13:45:58,798  DEBUG     {"message": "Server selection started", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6a476fbea52e0fdf282ac20a, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>", "clientId": {"$oid": "6a476fbea52e0fdf282ac20a"}}
+2026-07-03 13:45:58,799  DEBUG     {"message": "Server selection succeeded", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6a476fbea52e0fdf282ac20a, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>", "clientId": {"$oid": "6a476fbea52e0fdf282ac20a"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:45:58,799  DEBUG     {"message": "Connection checkout started", "clientId": {"$oid": "6a476fbea52e0fdf282ac20a"}, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:45:58,800  DEBUG     {"message": "Connection checked out", "clientId": {"$oid": "6a476fbea52e0fdf282ac20a"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.0}
+2026-07-03 13:45:58,800  DEBUG     {"message": "Command started", "clientId": {"$oid": "6a476fbea52e0fdf282ac20a"}, "command": "{\"find\": \"invoices\", \"filter\": {\"$or\": [{\"gemini.json.invoice_number\": \"KLKA2526-12078\"}, {\"gemini.json.invoice\": \"KLKA2526-12078\"}]}, \"sort\": {\"_id\": -1}, \"limit\": 1, \"singleBatch\": true, \"lsid\": {\"id\": {\"$binary\": {\"base64\": \"I2t1u7HhSvi7EtFulxYB4Q==\", \"subType\": \"04\"}}}, \"$db\": \"IDP\"}", "commandName": "find", "databaseName": "IDP", "requestId": 6334, "operationId": 6334, "driverConnectionId": 1, "serverConnectionId": 560, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:45:58,802  DEBUG     {"message": "Command succeeded", "clientId": {"$oid": "6a476fbea52e0fdf282ac20a"}, "durationMS": 2.0, "reply": "{\"cursor\": {\"firstBatch\": [{\"_id\": {\"$oid\": \"6a3e30e37a939c14beb0764f\"}, \"file_path\": \"D:\\IDP_2.0-INVOICE\\dist\\IDP-Invoice\\invoices_data\\Completed\\SD-1.jpeg\", \"uploaded_file_path\": \"D:\\IDP_2.0-INVOICE\\dist\\IDP-Invoice\\invoices_data\\Completed\\SD-1.jpeg\", \"ocr_text\": \"Tax Invoice\nKre38 Labs Pvt Ltd\nInvoice No.\npaeed\nNo.354.1st C Cross RoadKoramangla 8th Block\nKLKA2526-12078\n1-Dec-25\nKoramangala BengaluruBengaluru Urban\nKarnataka,560095\nGSTIN/UIN:29AAHCK0414C1ZZ\nState Name:Karnataka,Code:29\nCIN:U74999KA2018PTC111891\nBuyer (Bill to)\nMY HOME JEWEL FLAT OWNERS MAINTENANCE MUTUALIY AIDED CO-OP SOCIETY LIMITED\nSY NO 83 97.My Home Jewel,Madinaguda\nHyderabad,Rangareddy. Telangana\nGSTIN/UIN\n36AATAM7466Q1ZB\nState Name\nTelanganaCode:36\nSI\nDescription of\nHSN/SAC\nQuantity\nRate\nper\nAmount\nNo.\nServices\n1 Waltr A Monthly Subscription\n998319\n28 Nos\n499.00Nos\n13,972.00\nWater Level &Usage Monitor\n01/12/2025 to 31/12/2025\nLess:\nDiscount\n-4,319.00\n154.25*28=...", "commandName": "find", "databaseName": "IDP", "requestId": 6334, "operationId": 6334, "driverConnectionId": 1, "serverConnectionId": 560, "serverHost": "localhost", "serverPort": 27017}
+2026-07-03 13:45:58,802  DEBUG     {"message": "Connection checked in", "clientId": {"$oid": "6a476fbea52e0fdf282ac20a"}, "serverHost": "localhost", "serverPort": 27017, "driverConnectionId": 1}
+2026-07-03 13:45:58,802  INFO        ✓ Invoice found in MongoDB (document _id: 6a3e30e37a939c14beb0764f)
+2026-07-03 13:45:58,803  INFO      [STEP 2] Converting document to invoice structure ...
+2026-07-03 13:45:58,807  DEBUG     Date '1-Dec-25' matched format '%d-%b-%y' → 20251201
+2026-07-03 13:45:58,807  INFO        ✓ Converted successfully
+2026-07-03 13:45:58,808  INFO          Vendor      : Kre38 Labs Pvt Ltd
+2026-07-03 13:45:58,808  INFO          Date        : 20251201
+2026-07-03 13:45:58,808  INFO          Total       : 11391.0
+2026-07-03 13:45:58,808  INFO          Line items  : 1
+2026-07-03 13:45:58,809  INFO            - Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025 | qty=28.0 Nos | rate=499.0 | amount=13972.0
+2026-07-03 13:45:58,810  INFO        Converted JSON saved to: invoices_data\tally_json\KLKA2526-12078_converted.json
+2026-07-03 13:45:58,810  INFO      [STEP 3] Resolving target Tally company name ...
+2026-07-03 13:45:58,810  INFO      Using TALLY_COMPANY from env: 'My Home Jewel Apartments'
+2026-07-03 13:45:58,810  INFO        Using Tally company: 'My Home Jewel Apartments'
+2026-07-03 13:45:58,811  INFO      [STEP 4] Verifying / creating masters in Tally ...
+2026-07-03 13:45:58,811  INFO      Checking ledger: 'Kre38 Labs Pvt Ltd'
+2026-07-03 13:45:58,811  DEBUG     Posting to Tally [check_ledger:Kre38 Labs Pvt Ltd] ...
+2026-07-03 13:45:58,814  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:45:58,900  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 9724
+2026-07-03 13:45:58,902  DEBUG     Tally response [check_ledger:Kre38 Labs Pvt Ltd]: <ENVELOPE>
+ <HEADER>
+  <TALLYREQUEST>Import Data</TALLYREQUEST>
+ </HEADER>
+ <BODY>
+  <IMPORTDATA>
+   <REQUESTDESC>
+    <REPORTNAME>All Masters</REPORTNAME>
+    <STATICVARIABLES>
+     <SVCURRENTCOMPANY>My Home Jewel Apartments</SVCURRENTCOMPANY>
+    </STATICVARIABLES>
+   </REQUESTDESC>
+  
+2026-07-03 13:45:58,903  DEBUG     Ledger 'Kre38 Labs Pvt Ltd' exists in Tally: True
+2026-07-03 13:45:58,903  INFO        ✓ Ledger 'Kre38 Labs Pvt Ltd' already exists – skipping creation
+2026-07-03 13:45:58,903  INFO      Checking ledger: 'Purchase A/c'
+2026-07-03 13:45:58,903  DEBUG     Posting to Tally [check_ledger:Purchase A/c] ...
+2026-07-03 13:45:58,906  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:45:58,974  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 9724
+2026-07-03 13:45:58,976  DEBUG     Tally response [check_ledger:Purchase A/c]: <ENVELOPE>
+ <HEADER>
+  <TALLYREQUEST>Import Data</TALLYREQUEST>
+ </HEADER>
+ <BODY>
+  <IMPORTDATA>
+   <REQUESTDESC>
+    <REPORTNAME>All Masters</REPORTNAME>
+    <STATICVARIABLES>
+     <SVCURRENTCOMPANY>My Home Jewel Apartments</SVCURRENTCOMPANY>
+    </STATICVARIABLES>
+   </REQUESTDESC>
+  
+2026-07-03 13:45:58,976  DEBUG     Ledger 'Purchase A/c' exists in Tally: True
+2026-07-03 13:45:58,977  INFO        ✓ Ledger 'Purchase A/c' already exists – skipping creation
+2026-07-03 13:45:58,977  INFO      Checking stock item: 'Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025'
+2026-07-03 13:45:58,977  INFO      Unit 'Nos' is a built-in Tally unit – skipping check/create
+2026-07-03 13:45:58,977  DEBUG     Posting to Tally [check_stock_item:Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025] ...
+2026-07-03 13:45:58,978  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:45:58,995  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 104
+2026-07-03 13:45:58,995  DEBUG     Tally response [check_stock_item:Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025]: <RESPONSE>
+ <LINEERROR>Could not find Report &apos;List of Stock Items&apos;!</LINEERROR>
+</RESPONSE>
+
+2026-07-03 13:45:58,996  DEBUG     Stock item 'Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025' exists in Tally: False
+2026-07-03 13:45:58,996  INFO        ✗ Stock item 'Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025' not found – creating under group 'Primary' (unit=Nos)
+2026-07-03 13:45:58,996  DEBUG     Posting to Tally [create_stock_item:Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025] ...
+2026-07-03 13:45:58,997  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:45:59,113  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 144
+2026-07-03 13:45:59,115  DEBUG     Tally response [create_stock_item:Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025]: <RESPONSE>
+ <CREATED>0</CREATED>
+ <ALTERED>0</ALTERED>
+ <DELETED>0</DELETED>
+ <LASTVCHID>0</LASTVCHID>
+ <LASTMID>0</LASTMID>
+ <COMBINED>0</COMBINED>
+ <IGNORED>0</IGNORED>
+ <ERRORS>0</ERRORS>
+ <CANCELLED>0</CANCELLED>
+ <EXCEPTIONS>1</EXCEPTIONS>
+</RESPONSE>
+
+2026-07-03 13:45:59,116  WARNING     Stock item 'Waltr A Monthly Subscription Water Level &Usage Monitor 01/12/2025 to 31/12/2025': unexpected Tally response (created=0, errors=0). Treating as success. Response: <RESPONSE>
+ <CREATED>0</CREATED>
+ <ALTERED>0</ALTERED>
+ <DELETED>0</DELETED>
+ <LASTVCHID>0</LASTVCHID>
+ <LASTMID>0</LASTMID>
+ <COMBINED>0</COMBINED>
+ <IGNORED>0</IGNORED>
+ <ERRORS>0</ERRORS>
+ <CANCELLED>0</CANCELLED>
+ <EXCEPTIONS>1</EXCEPTIONS>
+</RESPONSE>
+
+2026-07-03 13:45:59,116  INFO        ✓ All masters verified/created
+2026-07-03 13:45:59,117  INFO      [STEP 5] Pushing item-invoice purchase voucher to Tally ...
+2026-07-03 13:45:59,117  INFO      Building item-invoice voucher XML for invoice 'KLKA2526-12078'
+2026-07-03 13:45:59,117  WARNING   Voucher imbalance detected: line items sum to 13972.00 but total_amount is 11391.00 (diff=-2581.00). Auto-adjusting last line item to balance.
+2026-07-03 13:45:59,118  DEBUG     Voucher balance: credit(party)=11391.00  debit(items)=11391.00
+2026-07-03 13:45:59,118  INFO      XML saved to: invoices_data\tally_xml\KLKA2526-12078.xml
+2026-07-03 13:45:59,118  INFO      Pushing voucher to Tally (date=20251201) ...
+2026-07-03 13:45:59,118  DEBUG     Posting to Tally [push_voucher:20251201] ...
+2026-07-03 13:45:59,119  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:45:59,192  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 191
+2026-07-03 13:45:59,193  DEBUG     Tally response [push_voucher:20251201]: <RESPONSE>
+ <LINEERROR>The date 1-12-2025 is Out of Range!</LINEERROR>
+ <CREATED>0</CREATED>
+ <ALTERED>0</ALTERED>
+ <DELETED>0</DELETED>
+ <LASTVCHID>0</LASTVCHID>
+ <LASTMID>0</LASTMID>
+ <COMBINED>0</COMBINED>
+ <IGNORED>0</IGNORED>
+ <ERRORS>0</ERRORS>
+ <CANCELLED>0</CANCELLED>
+ <EXCEPTIONS
+2026-07-03 13:45:59,193  DEBUG     Voucher response parsed: {'created': 0, 'altered': 0, 'errors': 0, 'exceptions': 1, 'has_lineerror': True}
+2026-07-03 13:45:59,193  ERROR     Tally rejected the voucher with LINEERROR:
+<RESPONSE>
+ <LINEERROR>The date 1-12-2025 is Out of Range!</LINEERROR>
+ <CREATED>0</CREATED>
+ <ALTERED>0</ALTERED>
+ <DELETED>0</DELETED>
+ <LASTVCHID>0</LASTVCHID>
+ <LASTMID>0</LASTMID>
+ <COMBINED>0</COMBINED>
+ <IGNORED>0</IGNORED>
+ <ERRORS>0</ERRORS>
+ <CANCELLED>0</CANCELLED>
+ <EXCEPTIONS>1</EXCEPTIONS>
+</RESPONSE>
+
+2026-07-03 13:45:59,194  WARNING   Retrying voucher push with alternate Tally date 20260703 (invoice date was 20251201).
+2026-07-03 13:45:59,194  DEBUG     Voucher balance: credit(party)=11391.00  debit(items)=11391.00
+2026-07-03 13:45:59,195  INFO      Pushing voucher to Tally (date=20260703) ...
+2026-07-03 13:45:59,195  DEBUG     Posting to Tally [push_voucher:20260703] ...
+2026-07-03 13:45:59,196  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:45:59,274  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 253
+2026-07-03 13:45:59,274  DEBUG     Tally response [push_voucher:20260703]: <RESPONSE>
+ <LINEERROR>Voucher date is missing for: &apos;Purchase&apos; voucher 1.  Verify the data, resolve errors (if any) and retry Split.</LINEERROR>
+ <CREATED>0</CREATED>
+ <ALTERED>0</ALTERED>
+ <DELETED>0</DELETED>
+ <LASTVCHID>0</LASTVCHID>
+ <LASTMID>0</LASTMID>
+ <COMBINED>0</COMBINED>
+2026-07-03 13:45:59,275  DEBUG     Voucher response parsed: {'created': 0, 'altered': 0, 'errors': 0, 'exceptions': 1, 'has_lineerror': True}
+2026-07-03 13:45:59,275  ERROR     Tally rejected the voucher with LINEERROR:
+<RESPONSE>
+ <LINEERROR>Voucher date is missing for: &apos;Purchase&apos; voucher 1.  Verify the data, resolve errors (if any) and retry Split.</LINEERROR>
+ <CREATED>0</CREATED>
+ <ALTERED>0</ALTERED>
+ <DELETED>0</DELETED>
+ <LASTVCHID>0</LASTVCHID>
+ <LASTMID>0</LASTMID>
+ <COMBINED>0</COMBINED>
+ <IGNORED>0</IGNORED>
+ <ERRORS>0</ERRORS>
+ <CANCELLED>0</CANCELLED>
+ <EXCEPTIONS>1</EXCEPTIONS>
+</RESPONSE>
+
+2026-07-03 13:45:59,275  WARNING   Retrying voucher push with alternate Tally date 20260401 (invoice date was 20251201).
+2026-07-03 13:45:59,275  DEBUG     Voucher balance: credit(party)=11391.00  debit(items)=11391.00
+2026-07-03 13:45:59,276  INFO      Pushing voucher to Tally (date=20260401) ...
+2026-07-03 13:45:59,276  DEBUG     Posting to Tally [push_voucher:20260401] ...
+2026-07-03 13:45:59,277  DEBUG     Starting new HTTP connection (1): localhost:9000
+2026-07-03 13:45:59,378  DEBUG     http://localhost:9000 "POST / HTTP/1.1" 200 144
+2026-07-03 13:45:59,378  DEBUG     Tally response [push_voucher:20260401]: <RESPONSE>
+ <CREATED>0</CREATED>
+ <ALTERED>0</ALTERED>
+ <DELETED>0</DELETED>
+ <LASTVCHID>0</LASTVCHID>
+ <LASTMID>0</LASTMID>
+ <COMBINED>0</COMBINED>
+ <IGNORED>0</IGNORED>
+ <ERRORS>0</ERRORS>
+ <CANCELLED>0</CANCELLED>
+ <EXCEPTIONS>1</EXCEPTIONS>
+</RESPONSE>
+
+2026-07-03 13:45:59,379  DEBUG     Voucher response parsed: {'created': 0, 'altered': 0, 'errors': 0, 'exceptions': 1, 'has_lineerror': False}
+2026-07-03 13:45:59,379  ERROR     Tally returned EXCEPTIONS=1 with CREATED=0 – voucher was NOT saved. Check the saved XML at: invoices_data\tally_xml\KLKA2526-12078.xml
+2026-07-03 13:45:59,379  ERROR     ============================================================
+2026-07-03 13:45:59,379  ERROR     ✗ Pipeline failed at voucher push for invoice: KLKA2526-12078
+2026-07-03 13:45:59,379  ERROR       Check the saved XML at: invoices_data/tally_xml/KLKA2526-12078.xml
+2026-07-03 13:45:59,380  ERROR       Check the log above for details.
+2026-07-03 13:45:59,380  ERROR     ============================================================
