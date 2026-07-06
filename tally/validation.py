@@ -23,10 +23,12 @@ def company_validation(data, tally_company_name):
 def vendor_validation(data, ledger_dict, not_in_tally):
     vendor = data['gemini']['json']['seller']
 
-    if vendor in ledger_dict['Sundry Creditors']:
+    creditors = ledger_dict.get("Sundry Creditors", [])
+
+    if vendor in creditors:
         logger.info("Vendor exists")
     else:
-        logger.info(f"Vendor {vendor} not found")
+        logger.info(f"Vendor '{vendor}' not found")
         not_in_tally["Vendor_name"] = vendor
 
 
