@@ -19,6 +19,7 @@ def active_company(TALLY_URL,xml_request):
 
     headers = {"Content-Type": "text/xml;charset=utf-8"}
     response = requests.post(TALLY_URL, data=normalize_to_bytes(xml_request), headers=headers)
+    print(response)
    
 
     if response.status_code == 200:

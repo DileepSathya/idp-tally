@@ -30,7 +30,7 @@ def ledger_entries_xml(data):
     for item in line_items:
         quantity = int(item['quantity'])
         rate = float(item['price_per_unit'])
-        unit = item.get('unit', 'Nos')
+        unit = item.get('unit', 'ltr')
 
         item_amount = quantity * rate
         total_invoice_amount += item_amount
@@ -38,6 +38,7 @@ def ledger_entries_xml(data):
         formatted_item_amount = f"{item_amount:.2f}"
         formatted_rate = f"{rate:.2f}"
         qty_str = f"{quantity} {_safe(unit)}"
+
 
         inventory_entries_xml += f"""
                         <ALLINVENTORYENTRIES.LIST>

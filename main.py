@@ -24,7 +24,7 @@ xml_stock_items = ET.parse(r"./xml_scripts/stock_items.xml")
 xml_create_voucher = r"./xml_scripts/create_voucher.xml"
 
 logger.info('xml read complete')
-
+"""
 logger.info("Retrieving the active company in tally")
 company_name = tally_details.active_company(TALLY_URL, xml_company_retriever)
 print(company_name)
@@ -38,14 +38,14 @@ stock_items = tally_details.stock_items(TALLY_URL, xml_stock_items)
 print(stock_items)
 
 logger.info("STAGE-1: completed")
-
+"""
 logger.info("STAGE-2: Retrieving of invoice from db and validating with Tally data")
 
 MONGO_URI        = os.environ.get("MONGO_URI",                 "mongodb://localhost:27017")
 MONGO_DB         = os.environ.get("MONGO_DB",                  "IDP")
 MONGO_COLLECTION = os.environ.get("MONGO_INVOICES_COLLECTION", "invoices")
 
-INVOICE_NUMBER = ["KLKA2526-12078"]
+INVOICE_NUMBER = ["KLKA2526-12078","36230377"]
 
 all_missing = {}
 
@@ -65,7 +65,16 @@ for inv in INVOICE_NUMBER:
         MONGO_COLLECTION,
         invoice_number
     )
-
+    create_voucher.send_template_to_tally(
+        TALLY_URL=TALLY_URL,
+        path=xml_create_voucher,
+        company_name="My Home Jewel Apartments___ ameya",
+        data=data_json,
+        invoice_number=invoice_number,
+        voucher_type="Purchase",
+        vendor_name=data_json['gemini']['json']['seller'],
+    )
+"""
     result = validation.validate_invoice(
         data_json,
         company_name,
@@ -89,19 +98,19 @@ for inv in INVOICE_NUMBER:
             invoice_number
         )
         continue
-
-    create_voucher.send_template_to_tally(
+"""
+"""    create_voucher.send_template_to_tally(
         TALLY_URL=TALLY_URL,
         path=xml_create_voucher,
-        company_name=company_name,
+        company_name="My Home Jewel Apartments___ ameya",
         data=data_json,
         invoice_number=invoice_number,
         voucher_type="Purchase",
         vendor_name=vendor_name,
-    )
+    )"""
 
 
-for details in all_missing.values():
+"""for details in all_missing.values():
     missing_stock_items.extend(details.get("stock_items", []))
 
     vendor = details.get("Vendor_name")
@@ -109,4 +118,4 @@ for details in all_missing.values():
         missing_vendors.append(vendor)
 
 print(missing_stock_items)
-print(missing_vendors)
+print(missing_vendors)"""
