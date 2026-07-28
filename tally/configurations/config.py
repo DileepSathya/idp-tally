@@ -47,6 +47,7 @@ def convert_date_yyyymmdd(raw_date: str) -> str:
     """
     raw_date = raw_date.strip()
 
+
     known_formats = [
         "%d-%b-%y",    # 31-Dec-25
         "%d-%b-%Y",    # 31-Dec-2025
@@ -59,11 +60,13 @@ def convert_date_yyyymmdd(raw_date: str) -> str:
         "%B %d, %Y",   # January 31, 2026
         "%d %B %Y",    # 31 January 2026
         "%d %b %Y",    # 31 Jan 2026
+        "%d.%m.%Y"     # Fixed: Handled 11.02.2026
     ]
 
     for fmt in known_formats:
         try:
             parsed_date = datetime.strptime(raw_date, fmt)
+            print(parsed_date)
             return parsed_date.strftime("%Y%m%d")
         except ValueError:
             continue

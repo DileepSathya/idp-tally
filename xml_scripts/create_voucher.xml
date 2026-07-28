@@ -24,9 +24,10 @@
       <ISINVOICE>Yes</ISINVOICE>
       <EFFECTIVEDATE>{VOUCHER_DATE}</EFFECTIVEDATE>
 
-      <!-- ===== Inventory Entries (dynamically inserted per item) ===== -->{INVENTORY_ENTRIES_XML}
+      <!-- ===== 1. Inventory Items Only ===== -->
+{INVENTORY_ENTRIES_XML}
 
-      <!-- ===== Party Ledger Entry (total, credit side) ===== -->
+      <!-- ===== 2. Party Ledger Entry (Total Credit) ===== -->
       <LEDGERENTRIES.LIST>
        <LEDGERNAME>{PARTY_LEDGER}</LEDGERNAME>
        <ISDEEMEDPOSITIVE>No</ISDEEMEDPOSITIVE>
@@ -37,6 +38,9 @@
         <AMOUNT>{TOTAL_AMOUNT}</AMOUNT>
        </BILLALLOCATIONS.LIST>
       </LEDGERENTRIES.LIST>
+
+      <!-- ===== 3. Taxes, Discounts, and Round Off (Accounting Ledgers) ===== -->
+{TAX_ENTRIES_XML}
 
      </VOUCHER>
     </TALLYMESSAGE>
