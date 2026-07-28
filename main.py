@@ -45,7 +45,7 @@ MONGO_URI        = os.environ.get("MONGO_URI",                 "mongodb://localh
 MONGO_DB         = os.environ.get("MONGO_DB",                  "IDP")
 MONGO_COLLECTION = os.environ.get("MONGO_INVOICES_COLLECTION", "invoices")
 
-INVOICE_NUMBER = ["KLKA2526-12078","36230377"]
+INVOICE_NUMBER = ["KLKA2526-12078"]
 
 all_missing = {}
 
@@ -68,11 +68,11 @@ for inv in INVOICE_NUMBER:
     create_voucher.send_template_to_tally(
         TALLY_URL=TALLY_URL,
         path=xml_create_voucher,
-        company_name="My Home Jewel Apartments___ ameya",
+        company_name="My Home Jewel Apartments",
         data=data_json,
         invoice_number=invoice_number,
         voucher_type="Purchase",
-        vendor_name=data_json['gemini']['json']['seller'],
+        vendor_name=data_json['gemini']['json']['additional_fields']['erp_vendor_name'],
     )
 """
     result = validation.validate_invoice(

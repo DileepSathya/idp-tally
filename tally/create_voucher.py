@@ -42,7 +42,7 @@ def ledger_entries_xml(data):
 
         inventory_entries_xml += f"""
                         <ALLINVENTORYENTRIES.LIST>
-                            <STOCKITEMNAME>{_safe(item['service'])}</STOCKITEMNAME>
+                            <STOCKITEMNAME>{_safe(item['erp_item_name'])}</STOCKITEMNAME>
                             <ISDEEMEDPOSITIVE>Yes</ISDEEMEDPOSITIVE>
                             <RATE>{formatted_rate}/{_safe(unit)}</RATE>
                             <ACTUALQTY>{qty_str}</ACTUALQTY>
