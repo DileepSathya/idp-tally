@@ -59,22 +59,27 @@ def ledger_entries_xml(data):
     return inventory_entries_xml, total_invoice_amount
 
 def tax_entries_xml(data):
-    """Builds the LEDGERENTRIES.LIST XML blocks with mathematically balanced accounting signs."""
+    """Builds the LEDGERENTRIES.LIST XML blocks with mathematically balanced accounting signs.
+
+    Sign convention used throughout (matches PARTYLEDGERNAME entry in the template):
+        ISDEEMEDPOSITIVE = Yes (Debit)  -> AMOUNT is NEGATIVE
+        ISDEEMEDPOSITIVE = No  (Credit) -> AMOUNT is POSITIVE
+    """
     additional_fields = data['gemini']['json'].get("additional_fields", {})
     blocks = []
     
-    # 1. Discount Received (Must be a POSITIVE value on the Credit side)
+    # 1. Discount Received (Credit side -> POSITIVE amount, per convention above)
     discount = float(additional_fields.get("discount", 0) or 0)
     if discount > 0:
         discount_ledger = _safe(additional_fields.get("discount_ledger_name", "Discount Received"))
         discount_block = f"""      <LEDGERENTRIES.LIST>
        <LEDGERNAME>{discount_ledger}</LEDGERNAME>
-       <ISDEEMEDPOSITIVE>No</ISDEEMEDPOSITIVE> <!-- Credit -->
-       <AMOUNT>-{discount:.2f}</AMOUNT> <!-- Positive value balances the credit trail -->
+       <ISDEEMEDPOSITIVE>Yes</ISDEEMEDPOSITIVE> <!-- Yes + positive amount = ledger balances AND invoice display subtracts it -->
+       <AMOUNT>{discount:.2f}</AMOUNT>
       </LEDGERENTRIES.LIST>"""
         blocks.append(discount_block)
     
-    # 2. IGST/Taxes (Debit)
+    # 2. IGST/Taxes (Debit -> NEGATIVE amount)
     seller_gst = additional_fields.get("seller_gstin", "")[:2]
     buyer_gst = additional_fields.get("buyer_gstin", "")[:2]
     
@@ -115,7 +120,7 @@ def tax_entries_xml(data):
       </LEDGERENTRIES.LIST>"""
                 blocks.append(block)
 
-    # 3. Round Off (Debit)
+    # 3. Round Off (Debit -> NEGATIVE amount, Credit -> POSITIVE amount)
     round_off = float(additional_fields.get("round_off", 0) or 0)
     if round_off != 0:
         round_ledger = _safe(additional_fields.get("round_off_ledger_name", "Round Off"))
