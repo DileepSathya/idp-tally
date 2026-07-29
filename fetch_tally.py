@@ -50,7 +50,6 @@ def ledger_entries_xml(data):
     # Gemini extraction schema actually uses (it may not be "po_id").
     po_id = json_data.get("po_id") or additional_fields.get("po_id", "")
 
-
     # NOTE: order date (BASICORDERDATE) was tested and confirmed to have no
     # bearing on whether Tally matches the PO - deliberately NOT sending it.
     # Only ORDERTYPE + ORDERNUMBER are sent below.
@@ -90,7 +89,6 @@ def ledger_entries_xml(data):
         # MATCH PURCHASE ORDER: ORDERTYPE alongside ORDERNUMBER, no date -
         # order date was tested and confirmed not to affect matching.
         if po_id:
-
             item_xml += f"""
                             <ORDERDETAILS.LIST>
                                 <ORDERTYPE>Purchase Order</ORDERTYPE>
@@ -240,7 +238,7 @@ def send_template_to_tally(TALLY_URL, path, company_name, data, invoice_number, 
             COMPANY_NAME=_safe(company_name),
             INVOICE_NUMBER=_safe(invoice_number),
             VOUCHER_TYPE=_safe(voucher_type),
-            VOUCHER_DATE=convert_date_yyyymmdd("2025-06-01"),#invoice_date
+            VOUCHER_DATE=convert_date_yyyymmdd(invoice_date),
             PARTY_LEDGER=_safe(vendor_name),
             TOTAL_AMOUNT=total_amount,
             INVENTORY_ENTRIES_XML=inventory_entries_xml,
@@ -248,15 +246,6 @@ def send_template_to_tally(TALLY_URL, path, company_name, data, invoice_number, 
         )
 
         xml_payload = clean_tally_xml(xml_payload)
-
-        # Save the exact payload that will be sent to Tally, for debugging.
-        # Written before validation so a malformed-XML failure still leaves
-        # you a file to inspect.
-        try:
-            with open("last_payload.xml", "w", encoding="utf-8") as debug_file:
-                debug_file.write(xml_payload)
-        except OSError as e:
-            logger.warning("Could not write last_payload.xml: %s", e)
 
         try:
             ET.fromstring(xml_payload)

@@ -24,7 +24,7 @@
       <ISINVOICE>Yes</ISINVOICE>
       <EFFECTIVEDATE>{VOUCHER_DATE}</EFFECTIVEDATE>
 
-      <!-- ===== 1. Inventory Items Only ===== -->
+      <!-- ===== 1. Inventory Items (PO linkage lives per-line inside ORDERDETAILS.LIST below) ===== -->
 {INVENTORY_ENTRIES_XML}
 
       <!-- ===== 2. Party Ledger Entry (Total Credit) ===== -->

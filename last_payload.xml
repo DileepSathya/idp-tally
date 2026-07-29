@@ -1,0 +1,82 @@
+<ENVELOPE>
+ <HEADER>
+  <TALLYREQUEST>Import Data</TALLYREQUEST>
+ </HEADER>
+ <BODY>
+  <IMPORTDATA>
+   <REQUESTDESC>
+    <REPORTNAME>Vouchers</REPORTNAME>
+    <STATICVARIABLES>
+     <SVCURRENTCOMPANY>My Home Jewel Apartments</SVCURRENTCOMPANY>
+    </STATICVARIABLES>
+   </REQUESTDESC>
+   <REQUESTDATA>
+    <TALLYMESSAGE xmlns:UDF="TallyUDF">
+     <VOUCHER REMOTEID="" VCHKEY="" VCHTYPE="Purchase" ACTION="Create" OBJVIEW="Invoice Voucher View">
+      <DATE>20250601</DATE>
+      <NARRATION>Purchase against Bill No. KLKA2526-12078</NARRATION>
+      <VOUCHERTYPENAME>Purchase</VOUCHERTYPENAME>
+      <REFERENCE>KLKA2526-12078</REFERENCE>
+      <VOUCHERNUMBER>KLKA2526-12078</VOUCHERNUMBER>
+      <PARTYLEDGERNAME>Kre38 labs pvt ltd</PARTYLEDGERNAME>
+      <BASICBUYERNAME>Kre38 labs pvt ltd</BASICBUYERNAME>
+      <PERSISTEDVIEW>Invoice Voucher View</PERSISTEDVIEW>
+      <ISINVOICE>Yes</ISINVOICE>
+      <EFFECTIVEDATE>20250601</EFFECTIVEDATE>
+
+      <!-- ===== 1. Inventory Items (PO linkage lives per-line inside ORDERDETAILS.LIST below) ===== -->
+
+                        <ALLINVENTORYENTRIES.LIST>
+                            <STOCKITEMNAME>Waltr A Monthly Subscribe</STOCKITEMNAME>
+                            <ISDEEMEDPOSITIVE>Yes</ISDEEMEDPOSITIVE>
+                            <RATE>499.00/Nos</RATE>
+                            <ACTUALQTY>28 Nos</ACTUALQTY>
+                            <BILLEDQTY>28 Nos</BILLEDQTY>
+                            <AMOUNT>-13972.00</AMOUNT>
+                            <ORDERDETAILS.LIST>
+                                <ORDERTYPE>Purchase Order</ORDERTYPE>
+                                <ORDERNUMBER>PO1001</ORDERNUMBER>
+                            </ORDERDETAILS.LIST>
+                            <ACCOUNTINGALLOCATIONS.LIST>
+                                <LEDGERNAME>Purchase A/c</LEDGERNAME>
+                                <ISDEEMEDPOSITIVE>Yes</ISDEEMEDPOSITIVE>
+                                <AMOUNT>-13972.00</AMOUNT>
+                            </ACCOUNTINGALLOCATIONS.LIST>
+                        </ALLINVENTORYENTRIES.LIST>
+
+      <!-- ===== 2. Party Ledger Entry (Total Credit) ===== -->
+      <LEDGERENTRIES.LIST>
+       <LEDGERNAME>Kre38 labs pvt ltd</LEDGERNAME>
+       <ISDEEMEDPOSITIVE>No</ISDEEMEDPOSITIVE>
+       <AMOUNT>11391.00</AMOUNT>
+       <BILLALLOCATIONS.LIST>
+        <NAME>KLKA2526-12078</NAME>
+        <BILLTYPE>New Ref</BILLTYPE>
+        <AMOUNT>11391.00</AMOUNT>
+       </BILLALLOCATIONS.LIST>
+      </LEDGERENTRIES.LIST>
+
+      <!-- ===== 3. Taxes, Discounts, and Round Off (Accounting Ledgers) ===== -->
+      <LEDGERENTRIES.LIST>
+       <LEDGERNAME>Discount Received</LEDGERNAME>
+       <ISDEEMEDPOSITIVE>Yes</ISDEEMEDPOSITIVE> <!-- Yes + positive amount = ledger balances AND invoice display subtracts it -->
+       <AMOUNT>4319.00</AMOUNT>
+      </LEDGERENTRIES.LIST>
+      <LEDGERENTRIES.LIST>
+       <LEDGERNAME>IGST</LEDGERNAME>
+       <ISDEEMEDPOSITIVE>Yes</ISDEEMEDPOSITIVE> <!-- Debit -->
+       <RATE>18.00</RATE>
+       <AMOUNT>-1737.54</AMOUNT>
+      </LEDGERENTRIES.LIST>
+      <LEDGERENTRIES.LIST>
+       <LEDGERNAME>Round Off</LEDGERNAME>
+       <ISDEEMEDPOSITIVE>No</ISDEEMEDPOSITIVE>
+       <AMOUNT>0.46</AMOUNT>
+      </LEDGERENTRIES.LIST>
+
+     </VOUCHER>
+    </TALLYMESSAGE>
+   </REQUESTDATA>
+  </IMPORTDATA>
+ </BODY>
+</ENVELOPE>
