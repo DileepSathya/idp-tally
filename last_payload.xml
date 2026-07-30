@@ -14,12 +14,12 @@
     <TALLYMESSAGE xmlns:UDF="TallyUDF">
      <VOUCHER REMOTEID="" VCHKEY="" VCHTYPE="Purchase" ACTION="Create" OBJVIEW="Invoice Voucher View">
       <DATE>20250601</DATE>
-      <NARRATION>Purchase against Bill No. KLKA2526-12078</NARRATION>
+      <NARRATION>Purchase against Bill No. TTFPL/25-26/510</NARRATION>
       <VOUCHERTYPENAME>Purchase</VOUCHERTYPENAME>
-      <REFERENCE>KLKA2526-12078</REFERENCE>
-      <VOUCHERNUMBER>KLKA2526-12078</VOUCHERNUMBER>
-      <PARTYLEDGERNAME>Kre38 labs pvt ltd</PARTYLEDGERNAME>
-      <BASICBUYERNAME>Kre38 labs pvt ltd</BASICBUYERNAME>
+      <REFERENCE>TTFPL/25-26/510</REFERENCE>
+      <VOUCHERNUMBER>TTFPL/25-26/510</VOUCHERNUMBER>
+      <PARTYLEDGERNAME>Tidy touch facilities pvt ltd</PARTYLEDGERNAME>
+      <BASICBUYERNAME>Tidy touch facilities pvt ltd</BASICBUYERNAME>
       <PERSISTEDVIEW>Invoice Voucher View</PERSISTEDVIEW>
       <ISINVOICE>Yes</ISINVOICE>
       <EFFECTIVEDATE>20250601</EFFECTIVEDATE>
@@ -27,51 +27,58 @@
       <!-- ===== 1. Inventory Items (PO linkage lives per-line inside ORDERDETAILS.LIST below) ===== -->
 
                         <ALLINVENTORYENTRIES.LIST>
-                            <STOCKITEMNAME>Waltr A Monthly Subscribe</STOCKITEMNAME>
+                            <STOCKITEMNAME>Phase-1 development</STOCKITEMNAME>
                             <ISDEEMEDPOSITIVE>Yes</ISDEEMEDPOSITIVE>
-                            <RATE>499.00/Nos</RATE>
-                            <ACTUALQTY>28 Nos</ACTUALQTY>
-                            <BILLEDQTY>28 Nos</BILLEDQTY>
-                            <AMOUNT>-13972.00</AMOUNT>
-                            <ORDERDETAILS.LIST>
-                                <ORDERTYPE>Purchase Order</ORDERTYPE>
-                                <ORDERNUMBER>PO1001</ORDERNUMBER>
-                            </ORDERDETAILS.LIST>
+                            <RATE>779364.81/DAYS</RATE>
+                            <ACTUALQTY>1 DAYS</ACTUALQTY>
+                            <BILLEDQTY>1 DAYS</BILLEDQTY>
+                            <AMOUNT>-779364.81</AMOUNT><BATCHALLOCATIONS.LIST>
+                                <TRACKINGNUMBER/> 
+                        <ORDERNO>PO1003</ORDERNO>
+
+        <ORDERNUMBERS.LIST>PO1003</ORDERNUMBERS.LIST>
+        <NUMBEROFBUYERITEMS>1 DAYS</NUMBEROFBUYERITEMS>
+        <AMOUNT>779364.81</AMOUNT>
+    </BATCHALLOCATIONS.LIST>
+
+
+
                             <ACCOUNTINGALLOCATIONS.LIST>
                                 <LEDGERNAME>Purchase A/c</LEDGERNAME>
                                 <ISDEEMEDPOSITIVE>Yes</ISDEEMEDPOSITIVE>
-                                <AMOUNT>-13972.00</AMOUNT>
+                                <AMOUNT>-779364.81</AMOUNT>
                             </ACCOUNTINGALLOCATIONS.LIST>
                         </ALLINVENTORYENTRIES.LIST>
 
       <!-- ===== 2. Party Ledger Entry (Total Credit) ===== -->
       <LEDGERENTRIES.LIST>
-       <LEDGERNAME>Kre38 labs pvt ltd</LEDGERNAME>
+       <LEDGERNAME>Tidy touch facilities pvt ltd</LEDGERNAME>
        <ISDEEMEDPOSITIVE>No</ISDEEMEDPOSITIVE>
-       <AMOUNT>11391.00</AMOUNT>
+       <AMOUNT>919650.00</AMOUNT>
        <BILLALLOCATIONS.LIST>
-        <NAME>KLKA2526-12078</NAME>
+        <NAME>TTFPL/25-26/510</NAME>
         <BILLTYPE>New Ref</BILLTYPE>
-        <AMOUNT>11391.00</AMOUNT>
+        <AMOUNT>919650.00</AMOUNT>
        </BILLALLOCATIONS.LIST>
       </LEDGERENTRIES.LIST>
 
       <!-- ===== 3. Taxes, Discounts, and Round Off (Accounting Ledgers) ===== -->
       <LEDGERENTRIES.LIST>
-       <LEDGERNAME>Discount Received</LEDGERNAME>
-       <ISDEEMEDPOSITIVE>Yes</ISDEEMEDPOSITIVE> <!-- Yes + positive amount = ledger balances AND invoice display subtracts it -->
-       <AMOUNT>4319.00</AMOUNT>
+       <LEDGERNAME>CGST</LEDGERNAME>
+       <ISDEEMEDPOSITIVE>Yes</ISDEEMEDPOSITIVE>
+       <RATE>9.00</RATE>
+       <AMOUNT>-70142.83</AMOUNT>
       </LEDGERENTRIES.LIST>
       <LEDGERENTRIES.LIST>
-       <LEDGERNAME>IGST</LEDGERNAME>
-       <ISDEEMEDPOSITIVE>Yes</ISDEEMEDPOSITIVE> <!-- Debit -->
-       <RATE>18.00</RATE>
-       <AMOUNT>-1737.54</AMOUNT>
+       <LEDGERNAME>SGST</LEDGERNAME>
+       <ISDEEMEDPOSITIVE>Yes</ISDEEMEDPOSITIVE>
+       <RATE>9.00</RATE>
+       <AMOUNT>-70142.83</AMOUNT>
       </LEDGERENTRIES.LIST>
       <LEDGERENTRIES.LIST>
        <LEDGERNAME>Round Off</LEDGERNAME>
-       <ISDEEMEDPOSITIVE>No</ISDEEMEDPOSITIVE>
-       <AMOUNT>0.46</AMOUNT>
+       <ISDEEMEDPOSITIVE>Yes</ISDEEMEDPOSITIVE>
+       <AMOUNT>0.47</AMOUNT>
       </LEDGERENTRIES.LIST>
 
      </VOUCHER>

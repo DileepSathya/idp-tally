@@ -45,8 +45,8 @@ MONGO_URI        = os.environ.get("MONGO_URI",                 "mongodb://localh
 MONGO_DB         = os.environ.get("MONGO_DB",                  "IDP")
 MONGO_COLLECTION = os.environ.get("MONGO_INVOICES_COLLECTION", "invoices")
 
-INVOICE_NUMBER = ["TTFPL/25-26/510","KLKA2526-12078"]
-#INVOICE_NUMBER = ["TTFPL/25-26/510"]
+#INVOICE_NUMBER = ["TTFPL/25-26/510","KLKA2526-12078"]
+INVOICE_NUMBER = ["TTFPL/25-26/510"]
 
 all_missing = {}
 

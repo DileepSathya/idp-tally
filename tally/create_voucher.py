@@ -91,11 +91,17 @@ def ledger_entries_xml(data):
         # order date was tested and confirmed not to affect matching.
         if po_id:
 
-            item_xml += f"""
-                            <ORDERDETAILS.LIST>
-                                <ORDERTYPE>Purchase Order</ORDERTYPE>
-                                <ORDERNUMBER>{_safe(po_id)}</ORDERNUMBER>
-                            </ORDERDETAILS.LIST>"""
+            item_xml += f"""<BATCHALLOCATIONS.LIST>
+                                <TRACKINGNUMBER/> 
+                        <ORDERNO>{_safe(po_id)}</ORDERNO>
+
+        <ORDERNUMBERS.LIST>{_safe(po_id)}</ORDERNUMBERS.LIST>
+        <NUMBEROFBUYERITEMS>{qty_str}</NUMBEROFBUYERITEMS>
+        <AMOUNT>{total_invoice_amount}</AMOUNT>
+    </BATCHALLOCATIONS.LIST>
+
+
+"""
 
         # Close inventory tags adding financial branch accounts line structures
         item_xml += f"""
